@@ -38,6 +38,6 @@ Pod::Spec.new do |spec|
 
   spec.ios.dependency "Masonry" , "~> 1.1.0"
 
-  spec.ios.dependency "SDWebImage","~> 5.0.0"
+  spec.ios.dependency "SDWebImage","~> 4.4.6"
 
 end
