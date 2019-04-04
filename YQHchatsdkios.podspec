@@ -1,7 +1,11 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "YQHchatsdkios"
-  spec.version      = "0.0.1"
+
+  spec.version      = "0.0.2"
+
+  spec.ios.deployment_target = '8.0'
+
   spec.summary      = "一款不绑定服务的纯聊天SDK"
 
   spec.description  = "向开源发展,一款不绑定服务的纯聊天SDK"
@@ -27,8 +31,6 @@ Pod::Spec.new do |spec|
   #spec.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
 
   spec.requires_arc = true
-
-  spec.ios.deployment_target = '8.0'
 
   spec.ios.frameworks = 'AVFoundation', 'UIKit'
 
