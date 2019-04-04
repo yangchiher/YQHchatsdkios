@@ -28,6 +28,8 @@ Pod::Spec.new do |spec|
 
   spec.requires_arc = true
 
+  spec.ios.deployment_target = '8.0'
+
   spec.ios.frameworks = 'AVFoundation', 'UIKit'
 
   #spec.libraries    = 'stdc++'
