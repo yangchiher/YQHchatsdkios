@@ -1,12 +1,12 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "YQHchatsdkios"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.1"
   spec.summary      = "一款不绑定服务的纯聊天SDK"
 
   spec.description  = "向开源发展,一款不绑定服务的纯聊天SDK"
                    
-  spec.homepage     = "https://github.com/yangchiher/YQHchat.git"
+  spec.homepage     = "https://github.com/yangchiher/YQHchatsdkios.git"
 
   spec.license      = "MIT"
 
@@ -14,13 +14,13 @@ Pod::Spec.new do |spec|
 
   spec.platform     = :ios, "8.0"
 
-  spec.source       = { :git => "https://github.com/yangchiher/YQHchat.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/yangchiher/YQHchatsdkios.git", :tag => "#{spec.version}" }
 
-  spec.source_files  = "YQHchatsdkios", "YQHchatsdkios/**/*.{h,m}"
+  #spec.source_files  = "YQHchatsdkios", "YQHchatsdkios/**/*.{h,m}"
 
-  #spec.source_files = "YQHchatsdkios/YQHchatsdkios/YQHchatHeader.h"
+  #spec.source_files = "YQHchatsdkios/YQHchatHeader.h"
 
-  spec.public_header_files = "YQHchatsdkios/YQHchatsdkios/YQHchatHeader.h"
+  #spec.public_header_files = "YQHchatsdkios/YQHchatHeader.h"
 
   # spec.resource  = "icon.png"
 
@@ -30,7 +30,7 @@ Pod::Spec.new do |spec|
 
   spec.ios.frameworks = 'AVFoundation', 'UIKit'
 
-  spec.libraries    = 'stdc++'
+  #spec.libraries    = 'stdc++'
 
   spec.ios.dependency "Masonry" , "~> 1.1.0"
 
