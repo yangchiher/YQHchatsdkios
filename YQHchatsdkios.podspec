@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
 
   spec.description  = "向开源发展,一款不绑定服务的纯聊天SDK"
                    
-  spec.homepage     = "https://github.com/yangchiher/YQHchatsdkios.git"
+  spec.homepage     = "https://github.com/yangchiher/YQHchatsdkios"
 
   spec.license      = "MIT"
 
