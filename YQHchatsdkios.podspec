@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "YQHchatsdkios"
 
-  spec.version      = "0.0.4"
+  spec.version      = "0.0.5"
 
   spec.ios.deployment_target = '8.0'
 
@@ -18,21 +18,21 @@ Pod::Spec.new do |spec|
 
   spec.platform     = :ios, "8.0"
 
+  spec.requires_arc = true
+
+  spec.ios.frameworks = 'AVFoundation', 'UIKit'
+
   spec.source       = { :git => "https://github.com/yangchiher/YQHchatsdkios.git", :tag => "#{spec.version}" }
 
   #spec.source_files  = "YQHchatsdkios", "YQHchatsdkios/**/*.{h,m}"
 
-  #spec.source_files = "YQHchatsdkios/YQHchatHeader.h"
+  spec.source_files = "YQHchatsdkios/YQHchatHeader.h"
 
   #spec.public_header_files = "YQHchatsdkios/YQHchatHeader.h"
 
-  # spec.resource  = "icon.png"
+  #spec.resource  = "icon.png"
 
   #spec.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
-
-  spec.requires_arc = true
-
-  spec.ios.frameworks = 'AVFoundation', 'UIKit'
 
   #spec.libraries    = 'stdc++'
 
