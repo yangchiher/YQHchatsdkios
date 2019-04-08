@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "YQHchatsdkios"
 
-  spec.version      = "0.0.5"
+  spec.version      = "0.0.7"
 
   spec.ios.deployment_target = '8.0'
 
@@ -24,11 +24,26 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/yangchiher/YQHchatsdkios.git", :tag => "#{spec.version}" }
 
-  #spec.source_files  = "YQHchatsdkios", "YQHchatsdkios/**/*.{h,m}"
+  #spec.public_header_files = "Pod/Classes/**/*.{h}"
 
-  spec.source_files = "YQHchatsdkios/YQHchatHeader.h"
+  spec.public_header_files = 'Pod/Classes/YQHchatsdkios.h'
 
-  #spec.public_header_files = "YQHchatsdkios/YQHchatHeader.h"
+  spec.source_files  = "Pod/Classes/**/*"
+
+  spec.private_header_files = ['Pod/Classes/Utils/VoiceConvert/amrwapper/wav.h','Pod/Classes/Utils/VoiceConvert/amrwapper/amrFileCodec.h','Pod/Classes/Utils/VoiceConvert/opencore-amrnb/*.h','Pod/Classes/Utils/VoiceConvert/opencore-amrwb/*.h']
+ 
+  spec.vendored_libraries = ['Pod/Classes/Utils/VoiceConvert/opencore-amrnb/libopencore-amrnb.a','Pod/Classes/Utils/VoiceConvert/opencore-amrwb/libopencore-amrwb.a']
+
+
+  spec.resource_bundles = {
+    #'YQHchatsdkios' => ['Pod/Assets/*.png']
+  }
+
+
+
+  #spec.source_files  = "YQHchatsdkios", "Pod/Classes/**/*.{h,m}"
+
+  #spec.source_files = "YQHchatsdkios/YQHchatHeader.h"
 
   #spec.resource  = "icon.png"
 
@@ -36,8 +51,10 @@ Pod::Spec.new do |spec|
 
   #spec.libraries    = 'stdc++'
 
-  spec.ios.dependency "Masonry" , "~> 1.1.0"
 
-  spec.ios.dependency "SDWebImage","~> 4.4.6"
+
+  spec.dependency "Masonry" , "~> 1.1.0"
+
+  spec.dependency "SDWebImage","~> 4.4.6"
 
 end

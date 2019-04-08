@@ -1,0 +1,1 @@
+../../../../../Pod/Classes/View/GroupDetail/YQHChatGroupDetailCell2.h

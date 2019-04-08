@@ -1,0 +1,22 @@
+//
+//  YQHchatPrefixHeader.pch
+//  YQHchatsdkios
+//
+//  Created by 杨棋贺 on 2019/4/3.
+//  Copyright © 2019年 杨棋贺. All rights reserved.
+//
+
+#ifndef YQHchatPrefixHeader_pch
+#define YQHchatPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//#import <Foundation/Foundation.h>
+
+//#import <UIKit/UIKit.h>
+//#import <AVFoundation/AVFoundation.h>
+
+//#import "YQHchatHeader.h"
+
+#endif /* YQHchatPrefixHeader_pch */

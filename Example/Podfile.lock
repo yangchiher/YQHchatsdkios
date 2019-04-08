@@ -1,0 +1,31 @@
+PODS:
+  - Masonry (1.1.0)
+  - SDWebImage (4.4.6):
+    - SDWebImage/Core (= 4.4.6)
+  - SDWebImage/Core (4.4.6)
+  - YQHchatsdkios (0.0.7):
+    - Masonry (~> 1.1.0)
+    - SDWebImage (~> 4.4.6)
+
+DEPENDENCIES:
+  - Masonry (~> 1.1.0)
+  - SDWebImage (~> 4.4.6)
+  - YQHchatsdkios (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Masonry
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  YQHchatsdkios:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDWebImage: 3f3f0c02f09798048c47a5ed0a13f17b063572d8
+  YQHchatsdkios: af733f4ddc9ade6a672c424e360cb5db30694184
+
+PODFILE CHECKSUM: 6ea8a836905c90b99064ebe3432df30a47fce71d
+
+COCOAPODS: 1.7.0.beta.3

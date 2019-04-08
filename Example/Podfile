@@ -1,0 +1,27 @@
+source 'https://github.com/CocoaPods/Specs.git'
+# platform :ios, '9.0'
+
+target 'YQHchatsdkios' do
+
+  # Pods for YQHchatsdkios
+
+
+  pod 'YQHchatsdkios', :path => '../'
+  pod 'Masonry', '~> 1.1.0'
+  pod 'SDWebImage','~> 4.4.6'
+  
+     post_install do |installer_representation|
+        installer_representation.pods_project.targets.each do |target|
+            puts "===================>target name #{target.name}"
+            if target.name == 'MLeaksFinder'
+                target.build_configurations.each do |config|
+                    puts "===================>wxq #{config}"
+                    if config.name == 'Debug_dev'
+                        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)','DEBUG=1']
+                    end
+                end
+            end
+        end
+    end
+    
+end
