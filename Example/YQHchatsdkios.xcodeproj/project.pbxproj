@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D159058225C38ED006FF80F /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D159057225C38ED006FF80F /* test.m */; };
 		1D8ACBDB225B23C80030364B /* YQHchatsdkios.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D8ACBDA225B23C80030364B /* YQHchatsdkios.m */; };
 		1D8ACBDC225B23C80030364B /* YQHchatsdkios.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1D8ACBD9225B23C80030364B /* YQHchatsdkios.h */; };
 		C6F127076AEAF6D2775C097F /* libPods-YQHchatsdkios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 67FD82AE9C6ECF5628C1B3E9 /* libPods-YQHchatsdkios.a */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1D159056225C38ED006FF80F /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
+		1D159057225C38ED006FF80F /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		1D8ACBD6225B23C80030364B /* libYQHchatsdkios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYQHchatsdkios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D8ACBD9225B23C80030364B /* YQHchatsdkios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YQHchatsdkios.h; sourceTree = "<group>"; };
 		1D8ACBDA225B23C80030364B /* YQHchatsdkios.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YQHchatsdkios.m; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 				1D8ACBE2225B25BB0030364B /* Other */,
 				1D8ACBD9225B23C80030364B /* YQHchatsdkios.h */,
 				1D8ACBDA225B23C80030364B /* YQHchatsdkios.m */,
+				1D159056225C38ED006FF80F /* test.h */,
+				1D159057225C38ED006FF80F /* test.m */,
 			);
 			path = YQHchatsdkios;
 			sourceTree = "<group>";
@@ -185,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D8ACBDB225B23C80030364B /* YQHchatsdkios.m in Sources */,
+				1D159058225C38ED006FF80F /* test.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

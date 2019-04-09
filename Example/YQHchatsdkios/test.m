@@ -1,16 +1,16 @@
 //
-//  YQHchatsdkios.m
+//  test.m
 //  YQHchatsdkios
 //
-//  Created by 杨棋贺 on 2019/4/8.
+//  Created by 杨棋贺 on 2019/4/9.
 //  Copyright © 2019年 杨棋贺. All rights reserved.
 //
 
-#import "YQHchatsdkios.h"
+#import "test.h"
 
-@implementation YQHchatsdkios
+@implementation test
 
--(void)tes{
+-(void)model{
     YQHChatGroupModel* model=[[YQHChatGroupModel alloc] init];
 }
 

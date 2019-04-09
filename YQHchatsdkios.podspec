@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
   spec.version      = "0.0.7"
 
-  spec.ios.deployment_target = '8.0'
+  spec.ios.deployment_target = '7.0'
 
   spec.summary      = "一款不绑定服务的纯聊天SDK"
 
@@ -24,9 +24,7 @@ Pod::Spec.new do |spec|
 
   spec.source       = { :git => "https://github.com/yangchiher/YQHchatsdkios.git", :tag => "#{spec.version}" }
 
-  #spec.public_header_files = "Pod/Classes/**/*.{h}"
-
-  spec.public_header_files = 'Pod/Classes/YQHchatsdkios.h'
+  spec.public_header_files = 'Pod/Classes/**/*.{h}'
 
   spec.source_files  = "Pod/Classes/**/*"
 

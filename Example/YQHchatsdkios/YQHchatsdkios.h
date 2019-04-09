@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+//#import <YQHchatsdkios/YQHChatContactModel.h>
+
+//#import <YQHchatsdkios/YQHchatsdkios.h>
+
+
 @interface YQHchatsdkios : NSObject
 
 @end
