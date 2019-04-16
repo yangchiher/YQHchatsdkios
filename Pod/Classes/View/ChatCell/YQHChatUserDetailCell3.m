@@ -66,7 +66,7 @@
     [self.contentView addSubview:_achievementTitleLabel];
     _achievementTitleLabel.text=@"主要成就";
     _achievementTitleLabel.font=[UIFont systemFontOfSize:17];
-    _achievementTitleLabel.textColor=[UIColor colorWithRed:51 green:51 blue:51 alpha:1.0];//RGB(51, 51, 51);
+    _achievementTitleLabel.textColor=[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];//RGB(51, 51, 51);
     [_achievementTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);
         make.top.mas_equalTo(self.contentView.mas_top).offset(15);
@@ -92,7 +92,7 @@
     [self.contentView addSubview:_achievementContentLabel];
     _achievementContentLabel.text=des;
     _achievementContentLabel.font=[UIFont systemFontOfSize:14];
-    _achievementContentLabel.textColor=[UIColor colorWithRed:102 green:102 blue:102 alpha:1.0];//RGB(102, 102, 102);
+    _achievementContentLabel.textColor=[UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1.0];//RGB(102, 102, 102);
     [_achievementContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);
         make.right.mas_equalTo(self.contentView.mas_right).offset(-15);

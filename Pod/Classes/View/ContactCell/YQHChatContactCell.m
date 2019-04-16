@@ -41,7 +41,7 @@
     //    CGContextSetStrokeColorWithColor(context, [UIColor colorWithRed:198/255.0 green:198/255.0 blue:198/255.0 alpha:1].CGColor);
     //    CGContextStrokeRect(context, CGRectMake(0, 0, rect.size.width, 1));
     //下分割线
-    CGContextSetStrokeColorWithColor(context,  [UIColor colorWithRed:238 green:238 blue:238 alpha:1.0].CGColor);
+    CGContextSetStrokeColorWithColor(context,  [UIColor colorWithRed:238/255.0f green:238/255.0f blue:238/255.0f alpha:1.0].CGColor);
     CGContextStrokeRect(context, CGRectMake(0.5, rect.size.height, rect.size.width, 0.5));
 }
 
@@ -58,7 +58,7 @@
     ////self.titleLabel.backgroundColor = [UIColor grayColor];
     self.titleLabel.font=[UIFont fontWithName:@"PingFangSC-Regular" size:15];
     self.titleLabel.text = @"";
-    self.titleLabel.textColor = [UIColor colorWithRed:51 green:51 blue:51 alpha:1.0];//RGB(51, 51, 51);
+    self.titleLabel.textColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
     [self.contentView addSubview:self.titleLabel];
     
 }

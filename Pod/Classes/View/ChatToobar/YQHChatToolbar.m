@@ -136,7 +136,7 @@ const CGFloat inputViewMaxHeight=150.0f;
     _inputTextView.scrollEnabled = YES;
     _inputTextView.returnKeyType = UIReturnKeySend;
     _inputTextView.enablesReturnKeyAutomatically = YES; // UITextView内部判断send按钮是否可以用
-    _inputTextView.backgroundColor = [UIColor colorWithRed:244 green:246 blue:249 alpha:1.0];//RGB(244, 246, 249);//[UIColor colorWithRed:244/255.0 green:246/255.0 blue:249/255.0 alpha:1/1.0];
+    _inputTextView.backgroundColor = [UIColor colorWithRed:244/255.0 green:246/255.0 blue:249/255.0 alpha:1.0];//RGB(244, 246, 249);//[UIColor colorWithRed:244/255.0 green:246/255.0 blue:249/255.0 alpha:1/1.0];
     //_inputTextView.placeHolder = NSEaseLocalizedString(@"message.toolBar.inputPlaceHolder", @"input a new message");
     _inputTextView.delegate = self;
     //_inputTextView.backgroundColor = [UIColor clearColor];
@@ -221,7 +221,7 @@ const CGFloat inputViewMaxHeight=150.0f;
     if (_faceView == nil) {
         _faceView = [[YQHFaceView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_toolbarView.frame), self.frame.size.width, 180)];
         [(YQHFaceView *)_faceView setDelegate:self];
-        _faceView.backgroundColor = [UIColor colorWithRed:240 green:242 blue:247 alpha:1.0];//RGB(240, 242, 247);//[UIColor colorWithRed:240 / 255.0 green:242 / 255.0 blue:247 / 255.0 alpha:1.0];
+        _faceView.backgroundColor = [UIColor colorWithRed:240/255.0 green:242/255.0 blue:247/255.0 alpha:1.0];//RGB(240, 242, 247);//[UIColor colorWithRed:240 / 255.0 green:242 / 255.0 blue:247 / 255.0 alpha:1.0];
         _faceView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     }
     

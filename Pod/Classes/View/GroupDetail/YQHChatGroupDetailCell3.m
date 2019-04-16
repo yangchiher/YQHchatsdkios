@@ -38,7 +38,7 @@
     [self.contentView addSubview:_descriptionTitleLabel];
     _descriptionTitleLabel.text=@"群简介";
     _descriptionTitleLabel.font=[UIFont systemFontOfSize:17];
-    _descriptionTitleLabel.textColor=[UIColor colorWithRed:51 green:51 blue:51 alpha:1.0];//RGB(51, 51, 51);
+    _descriptionTitleLabel.textColor=[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
     [_descriptionTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);
         make.top.mas_equalTo(self.contentView.mas_top).offset(15);
@@ -67,7 +67,7 @@
     [self.contentView addSubview:_descriptionContentLabel];
     _descriptionContentLabel.text=des;
     _descriptionContentLabel.font=[UIFont systemFontOfSize:14];
-    _descriptionContentLabel.textColor=[UIColor colorWithRed:102 green:102 blue:102 alpha:1.0];//RGB(102, 102, 102);
+    _descriptionContentLabel.textColor=[UIColor colorWithRed:102/255.0f green:102/255.0f blue:102/255.0f alpha:1.0];//RGB(102, 102, 102);
     [_descriptionContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);
         make.right.mas_equalTo(self.contentView.mas_right).offset(-15);

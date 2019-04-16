@@ -50,7 +50,7 @@
     if (self) {
         // Initialization code
         _bgView = [[UIView alloc] initWithFrame:self.bounds];
-        _bgView.backgroundColor = [UIColor colorWithRed:68 green:68 blue:68 alpha:0.9];;//RGBA(68, 68, 68, 0.9);//selfBlueColor;
+        _bgView.backgroundColor = [UIColor colorWithRed:68/255.0 green:68/255.0 blue:68/255.0 alpha:0.9];;//RGBA(68, 68, 68, 0.9);//selfBlueColor;
         _bgView.layer.cornerRadius = 5;
         _bgView.layer.masksToBounds = YES;
         [self addSubview:_bgView];
@@ -111,26 +111,26 @@
 -(void)recordButtonTouchUpInside
 {
     [_timer invalidate];
-    _bgView.backgroundColor = [UIColor colorWithRed:68 green:68 blue:68 alpha:0.9];//RGBA(68, 68, 68, 0.9);
+    _bgView.backgroundColor = [UIColor colorWithRed:68/255.0 green:68/255.0 blue:68/255.0 alpha:0.9];//RGBA(68, 68, 68, 0.9);
 }
 
 -(void)recordButtonTouchUpOutside
 {
     [_timer invalidate];
-    _bgView.backgroundColor = [UIColor colorWithRed:68 green:68 blue:68 alpha:0.9];;// RGBA(68, 68, 68, 0.9);
+    _bgView.backgroundColor = [UIColor colorWithRed:68/255.0 green:68/255.0 blue:68/255.0 alpha:0.9];;// RGBA(68, 68, 68, 0.9);
 }
 
 -(void)recordButtonDragInside
 {
     [_timer setFireDate:[NSDate date]];
-    _bgView.backgroundColor = [UIColor colorWithRed:68 green:68 blue:68 alpha:0.9];//RGBA(68, 68, 68, 0.9);
+    _bgView.backgroundColor = [UIColor colorWithRed:68/255.0 green:68/255.0 blue:68/255.0 alpha:0.9];//RGBA(68, 68, 68, 0.9);
     _textLabel.text = _upCancelText;
     _textLabel.backgroundColor = [UIColor clearColor];
 }
 
 -(void)recordButtonDragOutside
 {
-    _bgView.backgroundColor = [UIColor colorWithRed:246 green:72 blue:81 alpha:0.9];//RGBA(246, 72, 81, 0.9);
+    _bgView.backgroundColor = [UIColor colorWithRed:246/255.0 green:72/255.0 blue:81/255.0 alpha:0.9];//RGBA(246, 72, 81, 0.9);
     [_timer setFireDate:[NSDate distantFuture]];
     _recordAnimationView.image = [UIImage imageNamed:@"chat-stopRecord"];
     _textLabel.text = _loosenCancelText;

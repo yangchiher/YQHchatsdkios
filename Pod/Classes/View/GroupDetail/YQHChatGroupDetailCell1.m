@@ -211,7 +211,7 @@
     _label1.hidden=YES;
     [self.view1 addSubview:_label1];
     _label1.font=[UIFont systemFontOfSize:12];
-    _label1.textColor=[UIColor colorWithRed:187 green:187 blue:187 alpha:1.0];//RGB(187, 187, 187);
+    _label1.textColor=[UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];//RGB(187, 187, 187);
     _label1.textAlignment=NSTextAlignmentCenter;
     [_label1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imageView1.mas_left).offset(-10);
@@ -227,7 +227,7 @@
     _label2.hidden=YES;
     [self.view1 addSubview:_label2];
     _label2.font=[UIFont systemFontOfSize:12];
-    _label2.textColor=[UIColor colorWithRed:187 green:187 blue:187 alpha:1.0];;
+    _label2.textColor=[UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];;
     _label2.textAlignment=NSTextAlignmentCenter;
     [_label2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imageView2.mas_left).offset(-10);
@@ -242,7 +242,7 @@
     _label3.hidden=YES;
     [self.view1 addSubview:_label3];
     _label3.font=[UIFont systemFontOfSize:12];
-    _label3.textColor=[UIColor colorWithRed:187 green:187 blue:187 alpha:1.0];;
+    _label3.textColor=[UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];;
     _label3.textAlignment=NSTextAlignmentCenter;
     [_label3 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imageView3.mas_left).offset(-10);
@@ -257,7 +257,7 @@
     _label4.hidden=YES;
     [self.view1 addSubview:_label4];
     _label4.font=[UIFont systemFontOfSize:12];
-    _label4.textColor=[UIColor colorWithRed:187 green:187 blue:187 alpha:1.0];;
+    _label4.textColor=[UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];;
     _label4.textAlignment=NSTextAlignmentCenter;
     [_label4 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imageView4.mas_left).offset(-10);
@@ -273,7 +273,7 @@
     _label5.hidden=YES;
     [self.view2 addSubview:_label5];
     _label5.font=[UIFont systemFontOfSize:12];
-    _label5.textColor=[UIColor colorWithRed:187 green:187 blue:187 alpha:1.0];;
+    _label5.textColor=[UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];;
     _label5.textAlignment=NSTextAlignmentCenter;
     [_label5 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imageView5.mas_left).offset(-10);
@@ -289,7 +289,7 @@
     _label6.hidden=YES;
     [self.view2 addSubview:_label6];
     _label6.font=[UIFont systemFontOfSize:12];
-    _label6.textColor=[UIColor colorWithRed:187 green:187 blue:187 alpha:1.0];;
+    _label6.textColor=[UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];;
     _label6.textAlignment=NSTextAlignmentCenter;
     [_label6 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imageView6.mas_left).offset(-10);
@@ -304,7 +304,7 @@
     _label7.hidden=YES;
     [self.view2 addSubview:_label7];
     _label7.font=[UIFont systemFontOfSize:12];
-    _label7.textColor=[UIColor colorWithRed:187 green:187 blue:187 alpha:1.0];;
+    _label7.textColor=[UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];;
     _label7.textAlignment=NSTextAlignmentCenter;
     [_label7 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imageView7.mas_left).offset(-10);
@@ -319,7 +319,7 @@
     _label8.hidden=YES;
     [self.view2 addSubview:_label8];
     _label8.font=[UIFont systemFontOfSize:12];
-    _label8.textColor=[UIColor colorWithRed:187 green:187 blue:187 alpha:1.0];;
+    _label8.textColor=[UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];;
     _label8.textAlignment=NSTextAlignmentCenter;
     [_label8 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.imageView8.mas_left).offset(-10);
@@ -333,7 +333,7 @@
     [self.contentView addSubview:_groupMemberLabel];
     _groupMemberLabel.text=@"群聊成员";
     _groupMemberLabel.font=[UIFont systemFontOfSize:15];
-    _groupMemberLabel.textColor=[UIColor colorWithRed:187 green:187 blue:187 alpha:1.0];;
+    _groupMemberLabel.textColor=[UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];;
     //_groupMemberLabel.backgroundColor=[UIColor grayColor];
     [_groupMemberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);
@@ -368,7 +368,7 @@
     [self.contentView addSubview:_groupMemberCountLabel];
     //_groupMemberCountLabel.text=@"共36人";
     _groupMemberCountLabel.font=[UIFont systemFontOfSize:15];
-    _groupMemberCountLabel.textColor=[UIColor colorWithRed:187 green:187 blue:187 alpha:1.0];;
+    _groupMemberCountLabel.textColor=[UIColor colorWithRed:187/255.0f green:187/255.0f blue:187/255.0f alpha:1.0];;
     //_groupMemberCountLabel.backgroundColor=[UIColor grayColor];
     [_groupMemberCountLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.groupMemberCountIcon.mas_left).offset(-10-50);

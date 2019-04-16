@@ -56,7 +56,7 @@ static const CGFloat cellMargin=15;
         if (model.isSender) {
             self.messageTextColor= [UIColor whiteColor];
         } else {
-            self.messageTextColor=[UIColor colorWithRed:51 green:51 blue:51 alpha:1.0];//RGB(51, 51, 51);
+            self.messageTextColor=[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];//RGB(51, 51, 51);
         }
     }
     

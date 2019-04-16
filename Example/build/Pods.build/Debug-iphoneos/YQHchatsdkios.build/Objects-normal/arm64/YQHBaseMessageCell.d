@@ -1,0 +1,34 @@
+dependencies: \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/View/ChatCell/YQHBaseMessageCell.m \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Target\ Support\ Files/YQHchatsdkios/YQHchatsdkios-prefix.pch \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/View/ChatCell/YQHBaseMessageCell.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/View/ChatCell/YQHBubbleView+Text.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/View/ChatCell/YQHBubbleView.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/View/ChatCell/YQHBubbleView+Image.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/View/ChatCell/YQHBubbleView+Location.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/View/ChatCell/YQHBubbleView+Voice.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/View/ChatCell/YQHBubbleView+Video.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/View/ChatCell/YQHBubbleView+File.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/Model/YQHChatMessageModel.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/Masonry.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/MASUtilities.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/View+MASAdditions.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/MASConstraintMaker.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/MASConstraint.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/MASViewAttribute.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/View+MASShorthandAdditions.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/ViewController+MASAdditions.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/NSArray+MASAdditions.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/NSArray+MASShorthandAdditions.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/MASCompositeConstraint.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/MASViewConstraint.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/MASLayoutConstraint.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/Masonry/NSLayoutConstraint+MASDebugAdditions.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Pod/Classes/Other/chatConst.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/SDWebImage/UIImageView+WebCache.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/SDWebImage/SDWebImageCompat.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/SDWebImage/SDWebImageManager.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/SDWebImage/SDWebImageOperation.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/SDWebImage/SDWebImageDownloader.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/SDWebImage/SDImageCache.h \
+  /Users/yangchiher/杨棋贺SDK/ios/YQHchatsdkios/Example/Pods/Headers/Private/SDWebImage/SDImageCacheConfig.h

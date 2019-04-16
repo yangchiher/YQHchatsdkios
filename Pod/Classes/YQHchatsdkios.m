@@ -10,7 +10,7 @@
 @implementation YQHchatsdkios
 
 -(void)test{
-    [[YQHChatGroupModel alloc] init];
+    //[[YQHChatGroupModel alloc] init];
 }
 
 @end

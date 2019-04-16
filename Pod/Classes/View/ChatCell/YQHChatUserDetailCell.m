@@ -41,7 +41,7 @@
     [self.contentView addSubview:_nameLabel];
     _nameLabel.text=@"";
     _nameLabel.font=[UIFont systemFontOfSize:18];
-    _nameLabel.textColor=[UIColor colorWithRed:51 green:51 blue:51 alpha:1.0];//RGB(51, 51, 51);
+    _nameLabel.textColor=[UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];//RGB(51, 51, 51);
     //_nameLabel.backgroundColor=[UIColor grayColor];
     [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.avatarView.mas_right).offset(20);
@@ -62,7 +62,7 @@
     [self.contentView addSubview:_gradeLabel];
     _gradeLabel.text=@"一级教师 博士";
     _gradeLabel.font=[UIFont systemFontOfSize:14];
-    _gradeLabel.textColor=[UIColor colorWithRed:136 green:136 blue:136 alpha:1.0];//RGB(136, 136, 136);
+    _gradeLabel.textColor=[UIColor colorWithRed:136/255.0 green:136/255.0 blue:136/255.0 alpha:1.0];//RGB(136, 136, 136);
     //_gradeLabel.backgroundColor=[UIColor redColor];
     [_gradeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.gradeIcon.mas_right).offset(20);

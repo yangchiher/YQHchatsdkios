@@ -47,7 +47,7 @@
     [self.contentView addSubview:_groupNameTitleLabel];
     _groupNameTitleLabel.text=@"群名称";
     _groupNameTitleLabel.font=[UIFont systemFontOfSize:15];
-    _groupNameTitleLabel.textColor=[UIColor colorWithRed:51 green:51 blue:51 alpha:1.0];//RGB(51, 51, 51);
+    _groupNameTitleLabel.textColor=[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
     _topChatConversationLabel.backgroundColor=[UIColor grayColor];
     [_groupNameTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);
@@ -60,7 +60,7 @@
     _groupNameLabel.text=@"";
     _groupNameLabel.textAlignment=NSTextAlignmentRight;
     _groupNameLabel.font=[UIFont systemFontOfSize:15];
-    _groupNameLabel.textColor=[UIColor colorWithRed:102 green:102 blue:102 alpha:1.0];//RGB(102, 102, 102);
+    _groupNameLabel.textColor=[UIColor colorWithRed:102/255.0f green:102/255.0f blue:102/255.0f alpha:1.0];//RGB(102, 102, 102);
     [_groupNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         //make.left.mas_equalTo(self.contentView.left).offset(15);
         make.top.mas_equalTo(self.contentView.mas_top).offset(22.5);
@@ -70,7 +70,7 @@
     
     UIView *line1=[[UIView alloc] init];//WithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)
     [self.contentView addSubview:line1];
-    line1.backgroundColor=[UIColor colorWithRed:244 green:244 blue:244 alpha:1.0];//RGB(244, 244, 244);
+    line1.backgroundColor=[UIColor colorWithRed:244/255.0f green:244/255.0f blue:244/255.0f alpha:1.0];//RGB(244, 244, 244);
     [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(SCREEN_WIDTH);
         make.height.mas_equalTo(0.5);
@@ -83,7 +83,7 @@
     [self.contentView addSubview:_topChatConversationLabel];
     _topChatConversationLabel.text=@"聊天置顶";
     _topChatConversationLabel.font=[UIFont systemFontOfSize:15];
-    _topChatConversationLabel.textColor=[UIColor colorWithRed:51 green:51 blue:51 alpha:1.0];//RGB(51, 51, 51);
+    _topChatConversationLabel.textColor=[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
     //_topChatConversationLabel.backgroundColor=[UIColor grayColor];
     [_topChatConversationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);
@@ -105,7 +105,7 @@
     
     UIView *line=[[UIView alloc] init];//WithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)
     [self.contentView addSubview:line];
-    line.backgroundColor=[UIColor colorWithRed:244 green:244 blue:244 alpha:1.0];//RGB(244, 244, 244);
+    line.backgroundColor=[UIColor colorWithRed:244/255.0f green:244/255.0f blue:244/255.0f alpha:1.0];//RGB(244, 244, 244);
     [line mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(SCREEN_WIDTH);
         make.height.mas_equalTo(0.5);
@@ -131,7 +131,7 @@
     [_clearChatHistoryView addSubview:_clearChatHistoryLabel];
     _clearChatHistoryLabel.text=@"清空聊天记录";
     _clearChatHistoryLabel.font=[UIFont systemFontOfSize:15];
-    _clearChatHistoryLabel.textColor=[UIColor colorWithRed:51 green:51 blue:51 alpha:1.0];//RGB(51, 51, 51);
+    _clearChatHistoryLabel.textColor=[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
     //_clearChatHistoryLabel.backgroundColor=[UIColor redColor];
     [_clearChatHistoryLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);

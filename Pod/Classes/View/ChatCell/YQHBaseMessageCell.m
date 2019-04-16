@@ -102,7 +102,7 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
     _bubbleView.textLabel.font = _messageTextFont;
     [self.contentView addSubview:_bubbleView];
     if (isSender) {
-        _bubbleView.textLabel.textColor = [UIColor colorWithRed:51 green:51 blue:51 alpha:1.0];//RGB(51, 51, 51);
+        _bubbleView.textLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];//RGB(51, 51, 51);
     }else{
         _bubbleView.textLabel.textColor = [UIColor whiteColor];
     }

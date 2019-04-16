@@ -22,7 +22,7 @@ CGFloat const YQHMessageTimeCellPadding = 5;
 {
     // UIAppearance Proxy Defaults
     YQHMessageTimeCell *cell = [self appearance];
-    cell.titleLabelColor =[UIColor colorWithRed:153 green:153 blue:153 alpha:1.0];// RGB(153, 153, 153);
+    cell.titleLabelColor =[UIColor colorWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1.0];// RGB(153, 153, 153);
     cell.titleLabelFont = [UIFont systemFontOfSize:12];
 }
 

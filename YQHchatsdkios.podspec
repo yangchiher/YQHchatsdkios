@@ -2,9 +2,9 @@ Pod::Spec.new do |spec|
 
   spec.name         = "YQHchatsdkios"
 
-  spec.version      = "0.0.7"
+  spec.version      = "0.0.71"
 
-  spec.ios.deployment_target = '7.0'
+  spec.ios.deployment_target = '8.0'
 
   spec.summary      = "一款不绑定服务的纯聊天SDK"
 
@@ -34,7 +34,7 @@ Pod::Spec.new do |spec|
 
 
   spec.resource_bundles = {
-    #'YQHchatsdkios' => ['Pod/Assets/*.png']
+    'YQHchatsdkios' => ['Pod/Assets/**/*.png']
   }
 
 

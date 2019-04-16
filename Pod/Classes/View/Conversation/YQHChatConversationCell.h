@@ -15,7 +15,10 @@
 @property (strong, nonatomic) YQHChatConversationModel *model;
 
 //头像
-@property (strong, nonatomic) UIImageView *avatarView;
+//@property (strong, nonatomic) UIImageView *avatarView;
+
+//计算头像距离
+-(void)calculateAvatarView:(NSArray *)group;
 
 @end
 

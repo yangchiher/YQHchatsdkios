@@ -13,9 +13,11 @@
 @interface YQHChatGroupCell : UITableViewCell
 
 //头像
-@property (strong, nonatomic) UIImageView *avatarView;
+//@property (strong, nonatomic) UIImageView *avatarView;
 
 @property (strong, nonatomic) YQHChatGroupModel *model;
+
+-(void)calculateAvatarView:(NSArray *)group;
 
 @end
 
