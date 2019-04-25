@@ -10,7 +10,7 @@
 #import <Masonry/Masonry.h>
 #import "chatConst.h"
 
-@class EMMessage;
+//@class EMMessage;
 
 
 /**
@@ -26,6 +26,9 @@
  *  消息的唯一标识符
  */
 @property (nonatomic, copy) NSString *messageId;
+
+//本地消息ID
+@property (nonatomic, copy) NSString *localMessageId;
 
 /*!
  *  所属会话的唯一标识符
@@ -66,6 +69,16 @@
  *  接收方
  */
 @property (nonatomic, copy) NSString *to;
+
+/*!
+ *  发送方
+ */
+@property (nonatomic, copy) NSString *fromAppKey;
+
+/*!
+ *  接收方
+ */
+@property (nonatomic, copy) NSString *targetAppKey;
 
 /*!
  *  时间戳，服务器收到此消息的时间
@@ -233,6 +246,22 @@
  *  缩略文件URL路径
  */
 @property (strong, nonatomic) NSString *thumbnailFileURLPath;
+
+
+
+/*!
+ *  \~chinese
+ *  附件在服务器上的路径
+ */
+//@property (nonatomic, copy) NSString *remotePath;
+
+/*!
+ *  \~chinese
+ *  附件的密钥, 下载附件时需要密匙做校验
+ */
+@property (nonatomic, copy) NSString *secretKey;
+
+
 
 
 /**

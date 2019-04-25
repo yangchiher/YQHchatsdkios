@@ -55,12 +55,12 @@ type:(YQHChatToolbarType)type;
  * @param inputViewMaxHeight default 150
  * @param type               default EMChatToolbarTypeGroup
  */
-- (instancetype)initWithFrame:(CGRect)frame
-            horizontalPadding:(CGFloat)horizontalPadding
-              verticalPadding:(CGFloat)verticalPadding
-           inputViewMinHeight:(CGFloat)inputViewMinHeight
-           inputViewMaxHeight:(CGFloat)inputViewMaxHeight
-                         type:(YQHChatToolbarType)type;
+//- (instancetype)initWithFrame:(CGRect)frame
+//            horizontalPadding:(CGFloat)horizontalPadding
+//              verticalPadding:(CGFloat)verticalPadding
+//           inputViewMinHeight:(CGFloat)inputViewMinHeight
+//           inputViewMaxHeight:(CGFloat)inputViewMaxHeight
+//                         type:(YQHChatToolbarType)type;
 
 + (CGFloat)defaultHeight;
 

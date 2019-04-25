@@ -139,9 +139,9 @@
 //    }
 //}
 
-- (NSString*)getContentFromMessage:(EMMessage*)message
-{
-    NSString *content = @"";
+//- (NSString*)getContentFromMessage:(EMMessage*)message
+//{
+//    NSString *content = @"";
 //    if (message) {
 //        EMMessageBody *messageBody = message.body;
 //        switch (messageBody.type) {
@@ -173,8 +173,8 @@
 //            } break;
 //        }
 //    }
-    return content;
-}
+//    return content;
+//}
 
 - (UIImage *)scaleImage:(UIImage *)image toScale:(float)scaleSize
 {

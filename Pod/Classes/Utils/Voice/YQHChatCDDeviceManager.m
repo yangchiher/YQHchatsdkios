@@ -7,6 +7,7 @@
 //
 
 #import "YQHChatCDDeviceManager.h"
+#import "YQHChatCDDeviceManager+ChatProximitySensor.h"
 
 static YQHChatCDDeviceManager *emCDDeviceManager;
 @interface YQHChatCDDeviceManager (){

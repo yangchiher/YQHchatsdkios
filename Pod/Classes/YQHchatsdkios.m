@@ -9,8 +9,4 @@
 
 @implementation YQHchatsdkios
 
--(void)test{
-    //[[YQHChatGroupModel alloc] init];
-}
-
 @end

@@ -58,6 +58,12 @@ typedef enum {
 
 #define YQHMessageCellPadding 10
 
+#define IS_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125,2436), [[UIScreen mainScreen] currentMode].size) : NO)
+
+#define SafeAreaBottomHeight ((IS_iPhoneX == YES) ? 34 : 0)
+/// 导航栏宏
+#define SafeAreaTopHeight ((IS_iPhoneX == YES) ? 88 : 64)
+
 #define iPhoneX_BOTTOM_HEIGHT  ([UIScreen mainScreen].bounds.size.height==812?34:0)
 
 #define kEMMessageImageSizeWidth 120
@@ -67,11 +73,11 @@ typedef enum {
 
 
 //聊天界面头像背景
-#define chatMessageAvatarImageBg [UIImage imageNamed:@"icon_user_parents_def.png"]
+#define chatMessageAvatarImageBg [UIImage imageNamed:@"icon_user_parents_def"]
 //聊天界面消息发送失败提示图标
-#define chatMessageSendFail [UIImage imageNamed:@"EaseUIResource.bundle/messageSendFail"]
+#define chatMessageSendFail [UIImage imageNamed:@"icon_photo_bg"]
 //聊天界面下载图片背景
-#define chatMessageImageBg [UIImage imageNamed:@"EaseUIResource.bundle/imageDownloadFail"]
+#define chatMessageImageBg [UIImage imageNamed:@"icon_photo_bg"]
 //聊天界面视频背景
 #define chatMessageVedioBg [UIImage imageNamed:@"home-lookme-play"]
 //聊天界面接受者语音背景

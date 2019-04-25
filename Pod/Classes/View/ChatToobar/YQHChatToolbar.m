@@ -51,7 +51,6 @@ const CGFloat inputViewMaxHeight=150.0f;
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    //self = [self initWithFrame:frame horizontalPadding:8 verticalPadding:5 inputViewMinHeight:36 inputViewMaxHeight:150 type:YQHChatToolbarTypeGroup];
     self = [self initWithFrame:frame type:YQHChatToolbarTypeGroup];
     if (self) {
         
@@ -60,32 +59,14 @@ const CGFloat inputViewMaxHeight=150.0f;
     return self;
 }
 
-//- (instancetype)initWithFrame:(CGRect)frame type:(YQHChatToolbarType)type
-//{
-//    self = [self initWithFrame:frame horizontalPadding:8 verticalPadding:10 inputViewMinHeight:35 inputViewMaxHeight:150 type:type];
-//    if (self) {
-//
-//    }
-//
-//    return self;
-//}
 
 + (CGFloat)defaultHeight
 {
     return verticalPadding * 2 + inputViewMinHeight;
 }
 
-//- (instancetype)initWithFrame:(CGRect)frame
-//            horizontalPadding:(CGFloat)horizontalPadding
-//              verticalPadding:(CGFloat)verticalPadding
-//           inputViewMinHeight:(CGFloat)inputViewMinHeight
-//           inputViewMaxHeight:(CGFloat)inputViewMaxHeight
-//                         type:(YQHChatToolbarType)type
 - (instancetype)initWithFrame:(CGRect)frame type:(YQHChatToolbarType)type
 {
-//    if (frame.size.height < (verticalPadding * 2 + inputViewMinHeight)) {
-//        frame.size.height = verticalPadding * 2 + inputViewMinHeight;
-//    }
     frame.size.height=verticalPadding * 2 + inputViewMinHeight;
     self = [super initWithFrame:frame];
     if (self) {
@@ -112,23 +93,10 @@ const CGFloat inputViewMaxHeight=150.0f;
 
 - (void)_setupSubviews
 {
-    //backgroundImageView
-    
-//    _backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-//    _backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//    _backgroundImageView.backgroundColor = [UIColor clearColor];
-//    _backgroundImageView.image = [[UIImage imageNamed:@"EaseUIResource.bundle/messageToolbarBg"] stretchableImageWithLeftCapWidth:0.5 topCapHeight:10];
-//    [self addSubview:_backgroundImageView];
-    
     //toolbar
     _toolbarView = [[UIView alloc] initWithFrame:self.bounds];
     _toolbarView.backgroundColor = [UIColor whiteColor];
     [self addSubview:_toolbarView];
-    
-//    _toolbarBackgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, _toolbarView.frame.size.width, _toolbarView.frame.size.height)];
-//    _toolbarBackgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//    _toolbarBackgroundImageView.backgroundColor = [UIColor clearColor];
-//    [_toolbarView addSubview:_toolbarBackgroundImageView];
     
     //input textview
     _inputTextView = [[YQHTextView alloc] initWithFrame:CGRectMake(self.horizontalPadding, self.verticalPadding, self.frame.size.width - self.verticalPadding * 2, self.frame.size.height - self.verticalPadding * 2)];
@@ -136,8 +104,7 @@ const CGFloat inputViewMaxHeight=150.0f;
     _inputTextView.scrollEnabled = YES;
     _inputTextView.returnKeyType = UIReturnKeySend;
     _inputTextView.enablesReturnKeyAutomatically = YES; // UITextView内部判断send按钮是否可以用
-    _inputTextView.backgroundColor = [UIColor colorWithRed:244/255.0 green:246/255.0 blue:249/255.0 alpha:1.0];//RGB(244, 246, 249);//[UIColor colorWithRed:244/255.0 green:246/255.0 blue:249/255.0 alpha:1/1.0];
-    //_inputTextView.placeHolder = NSEaseLocalizedString(@"message.toolBar.inputPlaceHolder", @"input a new message");
+    _inputTextView.backgroundColor = [UIColor colorWithRed:244/255.0 green:246/255.0 blue:249/255.0 alpha:1.0];
     _inputTextView.delegate = self;
     //_inputTextView.backgroundColor = [UIColor clearColor];
     //_inputTextView.layer.borderColor = [UIColor colorWithWhite:0.8f alpha:1.0f].CGColor;
@@ -179,7 +146,6 @@ const CGFloat inputViewMaxHeight=150.0f;
     self.faceButton = [[UIButton alloc] init];
     self.faceButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     [self.faceButton setImage:[UIImage imageNamed:@"expression"] forState:UIControlStateNormal];
-    //[self.faceButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_faceSelected"] forState:UIControlStateHighlighted];
     [self.faceButton setImage:[UIImage imageNamed:@"keyboard"] forState:UIControlStateSelected];
     [self.faceButton addTarget:self action:@selector(faceButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     YQHChatToolbarItem *faceItem = [[YQHChatToolbarItem alloc] initWithButton:self.faceButton withView:self.faceView];
@@ -188,7 +154,6 @@ const CGFloat inputViewMaxHeight=150.0f;
     self.moreButton = [[UIButton alloc] init];
     self.moreButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
     [self.moreButton setImage:[UIImage imageNamed:@"Add_to"] forState:UIControlStateNormal];
-    //[self.moreButton setImage:[UIImage imageNamed:@"EaseUIResource.bundle/chatBar_moreSelected"] forState:UIControlStateHighlighted];
     [self.moreButton setImage:[UIImage imageNamed:@"Add_to"] forState:UIControlStateSelected];
     [self.moreButton addTarget:self action:@selector(moreButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     YQHChatToolbarItem *moreItem = [[YQHChatToolbarItem alloc] initWithButton:self.moreButton withView:self.moreView];
@@ -402,6 +367,8 @@ const CGFloat inputViewMaxHeight=150.0f;
 
 - (void)_willShowInputTextViewToHeight:(CGFloat)toHeight
 {
+    //self.inputTextView.scrollEnabled = false;
+    //[self.inputTextView scrollRangeToVisible:self.inputTextView.selectedRange];
     if (toHeight < self.inputViewMinHeight) {
         toHeight = self.inputViewMinHeight;
     }
@@ -411,6 +378,7 @@ const CGFloat inputViewMaxHeight=150.0f;
     
     if (toHeight == _previousTextViewContentHeight)
     {
+        //[self.inputTextView setScrollsToTop:YES];
         return;
     }
     else{
@@ -580,12 +548,14 @@ const CGFloat inputViewMaxHeight=150.0f;
             return ![self.delegate didDeleteCharacterFromLocation:range.location];
         }
     }
+    //[self.inputTextView scrollRangeToVisible:self.inputTextView.selectedRange];
     return YES;
 }
 
 - (void)textViewDidChange:(UITextView *)textView
 {
     [self _willShowInputTextViewToHeight:[self _getTextViewContentH:textView]];
+    //[self.inputTextView scrollRangeToVisible:self.inputTextView.selectedRange];
 }
 
 #pragma mark - DXFaceDelegate
@@ -810,6 +780,7 @@ const CGFloat inputViewMaxHeight=150.0f;
 
 - (void)recordButtonTouchDown
 {
+    __weak __typeof(&*self)weakSelf = self;
     [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
         
         if (granted) {
@@ -817,8 +788,8 @@ const CGFloat inputViewMaxHeight=150.0f;
             // 用户同意获取数据
             
             //DLog(@"麦克风打开了");
-            if (_delegate && [_delegate respondsToSelector:@selector(didStartRecordingVoiceAction:)]) {
-                [_delegate didStartRecordingVoiceAction:self.recordView];
+            if (weakSelf.delegate && [weakSelf.delegate respondsToSelector:@selector(didStartRecordingVoiceAction:)]) {
+                [weakSelf.delegate didStartRecordingVoiceAction:weakSelf.recordView];
             }
             
         } else {
@@ -827,7 +798,7 @@ const CGFloat inputViewMaxHeight=150.0f;
             
             NSLog(@"麦克风关闭了");
             [[[UIAlertView alloc] initWithTitle:nil
-                                        message:[NSString stringWithFormat:@"好医工需要访问您的麦克风。\n请启用麦克风-设置/隐私/麦克风"]
+                                        message:[NSString stringWithFormat:@"亿起点需要访问您的麦克风。\n请启用麦克风-设置/隐私/麦克风"]
                                        delegate:nil
                               cancelButtonTitle:@"好"
                               otherButtonTitles:nil] show];

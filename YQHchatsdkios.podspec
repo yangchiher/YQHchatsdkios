@@ -2,13 +2,13 @@ Pod::Spec.new do |spec|
 
   spec.name         = "YQHchatsdkios"
 
-  spec.version      = "0.0.71"
+  spec.version      = "0.0.72"
 
   spec.ios.deployment_target = '8.0'
 
-  spec.summary      = "一款不绑定服务的纯聊天SDK"
+  spec.summary      = "聊天SDK"
 
-  spec.description  = "向开源发展,一款不绑定服务的纯聊天SDK"
+  spec.description  = "开源聊天SDK"
                    
   spec.homepage     = "https://github.com/yangchiher/YQHchatsdkios"
 
@@ -33,11 +33,11 @@ Pod::Spec.new do |spec|
   spec.vendored_libraries = ['Pod/Classes/Utils/VoiceConvert/opencore-amrnb/libopencore-amrnb.a','Pod/Classes/Utils/VoiceConvert/opencore-amrwb/libopencore-amrwb.a']
 
 
-  spec.resource_bundles = {
-    'YQHchatsdkios' => ['Pod/Assets/**/*.png']
-  }
+  #spec.resource_bundles = {
+  #  'YQHchatsdkios' => ['Pod/Assets/**/*.png']
+  #}
 
-
+  spec.resource = 'Pod/Assets/**/*.png'
 
   #spec.source_files  = "YQHchatsdkios", "Pod/Classes/**/*.{h,m}"
 

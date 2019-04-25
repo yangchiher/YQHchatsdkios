@@ -12,7 +12,7 @@
 #import "YQHChatMessageModel.h"
 #import "YQHChatContactModel.h"
 #import "chatConst.h"
-//#import "YQHPopMenuView.h"
+#import "YQHPopMenuView.h"
 
 @interface YQHchatsdkios : NSObject
 

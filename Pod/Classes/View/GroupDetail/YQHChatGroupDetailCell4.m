@@ -12,7 +12,7 @@
 
 @interface YQHChatGroupDetailCell4()
 
-@property (nonatomic, strong) UILabel* label;
+
 
 @end
 
@@ -32,7 +32,6 @@
 {
     _label = [[UILabel alloc] init];
     [self.contentView addSubview:_label];
-    _label.text=@"退出本群";
     _label.font=[UIFont systemFontOfSize:18];
     _label.textColor=[UIColor colorWithRed:254/255.0f green:80/255.0f blue:2/255.0f alpha:1.0];//RGB(254, 80, 2);
     CGFloat start=(SCREEN_WIDTH-72)/2;

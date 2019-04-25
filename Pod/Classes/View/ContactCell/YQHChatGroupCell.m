@@ -93,6 +93,7 @@
     self.imageViews = [NSArray arrayWithObjects:self.imageView1,self.imageView2,self.imageView3,self.imageView4,self.imageView5,self.imageView6,self.imageView7,self.imageView8,self.imageView9, nil];
     
     self.avatarView1= [[UIView alloc] initWithFrame:CGRectMake(15, 10, 50, 50)];
+    [self.avatarView1 setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:0.6]];
     self.avatarView1.layer.cornerRadius=25;
     self.avatarView1.layer.masksToBounds=YES;
     [self.contentView addSubview:self.avatarView1];
@@ -161,11 +162,19 @@
     //UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewWidth)];
     //[view setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:0.6]];
     
-    __block NSInteger count = 0;               //下载图片完成的计数
+    for (NSInteger i = 8; i >= 0; i--) {
+        if (i>(avatarCount - 1)) {
+            UIImageView* imageView=self.imageViews[i];
+            imageView.hidden=YES;
+        }
+    }
+    
+    //__block NSInteger count = 0;               //下载图片完成的计数
     for (NSInteger i = avatarCount - 1; i >= 0; i--) {
-        NSString *obj = [group objectAtIndex:i];
+        id obj = [group objectAtIndex:i];
         UIImageView* imageView=self.imageViews[i];
-        CGSize size=CGSizeMake(width, width);
+        imageView.hidden=NO;
+        //CGSize size=CGSizeMake(width, width);
         imageView.frame=CGRectMake(x, y, width, width);
         //imageView.backgroundColor=[UIColor grayColor];
         imageView.layer.cornerRadius = width/2;

@@ -25,6 +25,8 @@
 
 @property (nonatomic, strong) UIView* clearChatHistoryView;
 
+@property (nonatomic, strong) UIView* topStateView;
+
 //@property (nonatomic, strong) UISwitch *topChatConversationSwitch;
 
 @end
@@ -78,15 +80,25 @@
         make.top.mas_equalTo(self.groupNameTitleLabel.mas_bottom).offset(22.5);
     }];
     
+    _topStateView=[[UIView alloc] init];
+    UITapGestureRecognizer* gesture1=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(makeTop)];
+    [_topStateView addGestureRecognizer:gesture1];
+    [self.contentView addSubview:_topStateView];
+    [_topStateView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.contentView.mas_left);
+        make.top.mas_equalTo(line1.mas_bottom).offset(1);
+        make.width.equalTo(@(SCREEN_WIDTH));
+        make.height.equalTo(@59);
+    }];
     
     _topChatConversationLabel = [[UILabel alloc] init];
-    [self.contentView addSubview:_topChatConversationLabel];
+    [_topStateView addSubview:_topChatConversationLabel];
     _topChatConversationLabel.text=@"聊天置顶";
     _topChatConversationLabel.font=[UIFont systemFontOfSize:15];
     _topChatConversationLabel.textColor=[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
     //_topChatConversationLabel.backgroundColor=[UIColor grayColor];
     [_topChatConversationLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(self.contentView.mas_left).offset(15);
+        make.left.mas_equalTo(self.topStateView.mas_left).offset(15);
         make.height.mas_equalTo(31);
         make.top.mas_equalTo(line1.mas_bottom).offset(17);
     }];
@@ -94,14 +106,15 @@
 
     self.topChatConversationSwitch = [[UISwitch alloc] init];//WithFrame:CGRectMake(100, 100, 100, 30)
     //self.topChatConversationSwitch.backgroundColor=[UIColor grayColor];
-    [self.contentView addSubview:self.topChatConversationSwitch];
+    [self.topStateView addSubview:self.topChatConversationSwitch];
     [self.topChatConversationSwitch mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(51);
         make.height.mas_equalTo(31);
-        make.right.mas_equalTo(self.contentView.mas_right).offset(-15);
+        make.right.mas_equalTo(self.topStateView.mas_right).offset(-15);
         //make.top.mas_equalTo(self.topChatConversationLabel.top);//.offset(22.5);
         make.top.mas_equalTo(line1.mas_bottom).offset(17);
     }];
+    
     
     UIView *line=[[UIView alloc] init];//WithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.5)
     [self.contentView addSubview:line];
@@ -139,7 +152,9 @@
     }];
 }
 
-
+-(void)makeTop{
+    //NSLog(@"");
+}
 
 -(void)setChatGroupModel:(YQHChatGroupModel *)chatGroupModel{
     _groupNameLabel.text=chatGroupModel.subject;

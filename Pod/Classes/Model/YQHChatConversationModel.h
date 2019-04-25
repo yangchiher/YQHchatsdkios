@@ -11,11 +11,8 @@
 
 @interface YQHChatConversationModel : NSObject
 
-
-/**
- 环信消息字段 暂时保留
- */
-//@property (strong, nonatomic) EMConversation *conversation;
+//用户的UUID
+@property(nonatomic, assign) SInt64 uid;
 
 /**
  会话ID

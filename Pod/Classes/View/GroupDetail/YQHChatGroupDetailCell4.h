@@ -11,5 +11,7 @@
 
 @interface YQHChatGroupDetailCell4 : UITableViewCell
 
+@property (nonatomic, strong) UILabel* label;
+
 @end
 

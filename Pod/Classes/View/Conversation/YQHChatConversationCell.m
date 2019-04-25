@@ -100,9 +100,11 @@
 //    [self.contentView addSubview:self.avatarView];
     
     self.avatarView1= [[UIView alloc] initWithFrame:CGRectMake(15, 18, 50, 50)];
+    [self.avatarView1 setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:0.6]];
     self.avatarView1.layer.cornerRadius=25;
     self.avatarView1.layer.masksToBounds=YES;
     [self.contentView addSubview:self.avatarView1];
+    
     [self.avatarView1 addSubview:self.imageView1];
     [self.avatarView1 addSubview:self.imageView2];
     [self.avatarView1 addSubview:self.imageView3];
@@ -119,14 +121,16 @@
     self.badgeView.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.badgeView.clipsToBounds = YES;
     self.badgeView.titleLabel.textColor = [UIColor whiteColor];
-    self.badgeView.backgroundColor = [UIColor colorWithRed:247/255.0 green:64/255.0 blue:64/255.0 alpha:1/1.0];//RGB(247, 64, 64);//;
+    self.badgeView.backgroundColor = [UIColor colorWithRed:247/255.0 green:64/255.0 blue:64/255.0 alpha:1/1.0];
+    //[self.badgeView setBackgroundImage:[UII] forState:UIControlStateNormal];
+    //[self.badgeView setBackgroundImage:<#(nullable UIImage *)#> forState:UIControlStateHighlighted];
     
     //[self.badgeView setBackgroundImage:[UIImage imageWithColor:RGB(247, 64, 64)] forState:UIControlStateNormal];
     //[self.badgeView setBackgroundImage:[UIImage imageWithColor:RGB(247, 64, 64)] forState:UIControlStateHighlighted];
     
     self.badgeView.titleLabel.font = [UIFont systemFontOfSize:10];
     self.badgeView.layer.cornerRadius = 8;
-    [self.badgeView setTitle:@"3" forState:UIControlStateNormal];
+    [self.badgeView setTitle:@"" forState:UIControlStateNormal];
     [self.contentView addSubview:self.badgeView];
     
     [self.badgeView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -232,31 +236,32 @@
         y = space3;
     }
     
-    //UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, viewWidth, viewWidth)];
-    //[view setBackgroundColor:[UIColor colorWithWhite:0.8 alpha:0.6]];
+    for (NSInteger i = 8; i >= 0; i--) {
+        if (i>(avatarCount - 1)) {
+            UIImageView* imageView=self.imageViews[i];
+            imageView.hidden=YES;
+        }
+    }
     
-    __block NSInteger count = 0;               //下载图片完成的计数
     for (NSInteger i = avatarCount - 1; i >= 0; i--) {
-        NSString *obj = [group objectAtIndex:i];
+        id obj = [group objectAtIndex:i];
         UIImageView* imageView=self.imageViews[i];
-        CGSize size=CGSizeMake(width, width);
+        imageView.hidden=NO;
         imageView.frame=CGRectMake(x, y, width, width);
-        //imageView.backgroundColor=[UIColor grayColor];
         imageView.layer.cornerRadius = width/2;
         imageView.layer.masksToBounds = YES;
+        
         CGRect rect = imageView.frame;
         rect.size.width=width;
         rect.size.height = width;
         imageView.frame=rect;
-        
-        //NSLog(@"%f %f %f",x,y,width);
-        //NSLog(@"---%@",NSStringFromCGRect(imageView.frame));
         
         if ([obj isKindOfClass:[NSString class]]) {
             if ([obj length] > 0){
                 [imageView sd_setImageWithURL:[NSURL URLWithString:obj] placeholderImage:chatMessageAvatarImageBg options:SDWebImageRefreshCached];
             } else {
                 imageView.image = chatMessageAvatarImageBg;
+                //[imageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:chatMessageAvatarImageBg options:SDWebImageRefreshCached];
             }
         }else if ([obj isKindOfClass:[UIImage class]]){
             imageView.image = obj;
