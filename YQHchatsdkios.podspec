@@ -2,7 +2,7 @@ Pod::Spec.new do |spec|
 
   spec.name         = "YQHchatsdkios"
 
-  spec.version      = "0.0.72"
+  spec.version      = "0.0.73"
 
   spec.ios.deployment_target = '8.0'
 

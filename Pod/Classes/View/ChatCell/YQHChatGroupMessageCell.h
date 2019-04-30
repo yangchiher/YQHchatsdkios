@@ -1,9 +1,8 @@
 //
-//  YQHBaseMessageCell.h
-//  家校共享
+//  YQHChatGroupMessageCell.h
+//  AFNetworking
 //
-//  Created by 杨棋贺 on 2019/2/27.
-//  Copyright © 2019年 mac. All rights reserved.
+//  Created by 杨棋贺 on 2019/4/29.
 //
 
 #import <UIKit/UIKit.h>
@@ -14,9 +13,9 @@ extern NSString *const YQHMessageCellIdentifierSendImage;
 extern NSString *const YQHMessageCellIdentifierSendVoice;
 extern NSString *const YQHMessageCellIdentifierSendVideo;
 
-@interface YQHChatMessageCell : YQHBaseMessageCell
+@interface YQHChatGroupMessageCell : YQHBaseMessageCell
 {
-    //UILabel *_nameLabel;
+    UILabel *_nameLabel;
 }
 
 @property (nonatomic) CGFloat avatarSize UI_APPEARANCE_SELECTOR; //default 30;
@@ -32,4 +31,3 @@ extern NSString *const YQHMessageCellIdentifierSendVideo;
 @property (nonatomic) BOOL messageNameIsHidden UI_APPEARANCE_SELECTOR; //default NO;
 
 @end
-

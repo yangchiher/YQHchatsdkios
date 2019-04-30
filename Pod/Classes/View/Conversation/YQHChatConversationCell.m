@@ -152,7 +152,7 @@
         make.left.equalTo(self.avatarView1.mas_right).offset(10);
         make.top.equalTo(self.contentView.mas_top).offset(22);
         make.height.equalTo(@19);
-        make.width.equalTo(@(SCREEN_WIDTH-200));
+        make.width.equalTo(@(SCREEN_WIDTH-160));
     }];
     
     
@@ -167,7 +167,7 @@
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView.mas_right).offset(-15);
         make.top.equalTo(self.contentView.mas_top).offset(23.5);
-        make.width.equalTo(@110);
+        make.width.equalTo(@70);
     }];
                                                                
     // 详情

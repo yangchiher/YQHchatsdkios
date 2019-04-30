@@ -10,28 +10,20 @@
 
 #import "YQHBubbleView+Text.h"
 #import "YQHBubbleView+Image.h"
-#import "YQHBubbleView+Location.h"
 #import "YQHBubbleView+Voice.h"
 #import "YQHBubbleView+Video.h"
-#import "YQHBubbleView+File.h"
-//#import "NSString+cal.h"
 #import "YQHChatMessageModel.h"
-
 #import <SDWebImage/UIImageView+WebCache.h>
 
 NSString *const YQHMessageCellIdentifierRecvText = @"YQHMessageCellRecvText";
-NSString *const YQHMessageCellIdentifierRecvLocation = @"YQHMessageCellRecvLocation";
 NSString *const YQHMessageCellIdentifierRecvVoice = @"YQHMessageCellRecvVoice";
 NSString *const YQHMessageCellIdentifierRecvVideo = @"YQHMessageCellRecvVideo";
 NSString *const YQHMessageCellIdentifierRecvImage = @"YQHMessageCellRecvImage";
-NSString *const YQHMessageCellIdentifierRecvFile = @"YQHMessageCellRecvFile";
 
 NSString *const YQHMessageCellIdentifierSendText = @"YQHMessageCellSendText";
-NSString *const YQHMessageCellIdentifierSendLocation = @"YQHMessageCellSendLocation";
 NSString *const YQHMessageCellIdentifierSendVoice = @"YQHMessageCellSendVoice";
 NSString *const YQHMessageCellIdentifierSendVideo = @"YQHMessageCellSendVideo";
 NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
-NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
 
 @interface YQHBaseMessageCell()
 {
@@ -56,7 +48,6 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
 
 + (void)initialize
 {
-    // UIAppearance Proxy Defaults
     YQHBaseMessageCell *cell = [self appearance];
     cell.statusSize = 20;
     cell.activitySize = 20;
@@ -163,11 +154,8 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
 - (void)_setupConstraints
 {
     //bubble view
-    //[self addConstraint:[NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
-    
     self.bubbleMaxWidthConstraint = [NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.bubbleMaxWidth];
     [self addConstraint:self.bubbleMaxWidthConstraint];
-    //    self.bubbleMaxWidthConstraint.active = YES;
     
     //status button
     self.statusWidthConstraint = [NSLayoutConstraint constraintWithItem:self.statusButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.statusSize];
@@ -182,6 +170,7 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.activity attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
     
     [self _updateHasReadWidthConstraint];
+    
     if (self.hasRead) {
         [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.statusButton attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
@@ -248,7 +237,7 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
                 if (!image) {
                     image = _model.image;
                     if (!image) {
-                        //图片暂时 注销
+                        //图片暂时 注销  11111
                         [_bubbleView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.fileURLPath] placeholderImage:chatMessageImageBg];
                     } else {
                         _bubbleView.imageView.image = image;
@@ -294,13 +283,13 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
                 if (!image) {
                     image = _model.image;
                     if (!image) {
-                        //视频暂时屏蔽
-                        //[_bubbleView.videoImageView sd_setImageWithURL:[NSURL URLWithString:_model.fileURLPath] placeholderImage:chatMessageVedioBg];
+                        [_bubbleView.videoImageView sd_setImageWithURL:[NSURL URLWithString:_model.thumbnailRemotePath] placeholderImage:chatMessageImageBg];
                     } else {
                         _bubbleView.videoImageView.image = image;
                     }
                 } else {
-                    _bubbleView.videoImageView.image = image;
+                    //[_bubbleView.videoImageView sd_setImageWithURL:[NSURL URLWithString:_model.thumbnailRemotePath] placeholderImage:chatMessageVedioBg];
+                    _bubbleView.videoImageView.image=image;
                 }
             }
                 break;
@@ -364,11 +353,6 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
                     [_bubbleView updateImageMargin:_bubbleMargin];
                 }
                     break;
-                case YQHChatMessageLocationType:
-                {
-                    [_bubbleView updateLocationMargin:_bubbleMargin];
-                }
-                    break;
                 case YQHChatMessageVoiceType:
                 {
                     [_bubbleView updateVoiceMargin:_bubbleMargin];
@@ -377,11 +361,6 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
                 case YQHChatMessageVideoType:
                 {
                     [_bubbleView updateVideoMargin:_bubbleMargin];
-                }
-                    break;
-                case YQHChatMessageFileType:
-                {
-                    [_bubbleView updateFileMargin:_bubbleMargin];
                 }
                     break;
                 default:
@@ -490,12 +469,6 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
             return;
         }
         
-//        if ([self respondsToSelector:@selector(isCustomBubbleView:)] && [self isCustomBubbleView:_model]) {
-//            if ([_delegate respondsToSelector:@selector(messageCellSelected:)]) {
-//                [_delegate messageCellSelected:_model];
-//                return;
-//            }
-//        }
         switch (_model.chatMessageType) {
             case YQHChatMessageImageType:
             {
@@ -504,35 +477,14 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
                 }
             }
                 break;
-            case YQHChatMessageLocationType:
-            {
-                if ([_delegate respondsToSelector:@selector(messageCellSelected:)]) {
-                    [_delegate messageCellSelected:_model];
-                }
-            }
-                break;
             case YQHChatMessageVoiceType:
             {
-                //                _model.isMediaPlaying = !_model.isMediaPlaying;
-                //                if (_model.isMediaPlaying) {
-                //                    [_bubbleView.voiceImageView startAnimating];
-                //                }
-                //                else{
-                //                    [_bubbleView.voiceImageView stopAnimating];
-                //                }
                 if ([_delegate respondsToSelector:@selector(messageCellSelected:)]) {
                     [_delegate messageCellSelected:_model];
                 }
             }
                 break;
             case YQHChatMessageVideoType:
-            {
-                if ([_delegate respondsToSelector:@selector(messageCellSelected:)]) {
-                    [_delegate messageCellSelected:_model];
-                }
-            }
-                break;
-            case YQHChatMessageFileType:
             {
                 if ([_delegate respondsToSelector:@selector(messageCellSelected:)]) {
                     [_delegate messageCellSelected:_model];
@@ -575,14 +527,8 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
             case YQHChatMessageVideoType:
                 cellIdentifier = YQHMessageCellIdentifierSendVideo;
                 break;
-            case YQHChatMessageLocationType:
-                cellIdentifier = YQHMessageCellIdentifierSendLocation;
-                break;
             case YQHChatMessageVoiceType:
                 cellIdentifier = YQHMessageCellIdentifierSendVoice;
-                break;
-            case YQHChatMessageFileType:
-                cellIdentifier = YQHMessageCellIdentifierSendFile;
                 break;
             default:
                 break;
@@ -599,14 +545,8 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
             case YQHChatMessageVideoType:
                 cellIdentifier = YQHMessageCellIdentifierRecvVideo;
                 break;
-            case YQHChatMessageLocationType:
-                cellIdentifier = YQHMessageCellIdentifierRecvLocation;
-                break;
             case YQHChatMessageVoiceType:
                 cellIdentifier = YQHMessageCellIdentifierRecvVoice;
-                break;
-            case YQHChatMessageFileType:
-                cellIdentifier = YQHMessageCellIdentifierRecvFile;
                 break;
             default:
                 break;
@@ -638,9 +578,13 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
                 CGRect rect = [text boundingRectWithSize:CGSizeMake(bubbleMaxWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil];
                 height += (rect.size.height > 20 ? rect.size.height : 20) + 10;
             }
+            height +=15;
         }
             break;
         case YQHChatMessageImageType:
+        {
+            //图片和视频一样
+        }
         case YQHChatMessageVideoType:
         {
             CGSize retSize = model.thumbnailImageSize;
@@ -662,38 +606,9 @@ NSString *const YQHMessageCellIdentifierSendFile = @"YQHMessageCellSendFile";
             height += retSize.height;
         }
             break;
-        case YQHChatMessageLocationType:
-        {
-            height += kEMMessageLocationHeight;
-        }
-            break;
         case YQHChatMessageVoiceType:
         {
             height += kEMMessageVoiceHeight;
-        }
-            break;
-        case YQHChatMessageFileType:
-        {
-            NSString *text = model.fileName;
-            UIFont *font = cell.messageFileNameFont;
-            CGRect nameRect;
-            if ([NSString instancesRespondToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
-                nameRect = [text boundingRectWithSize:CGSizeMake(bubbleMaxWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil];
-            } else {
-                nameRect.size = [self sizeWithText:text fontSize:font.pointSize];
-            }
-            height += (nameRect.size.height > 20 ? nameRect.size.height : 20);
-            
-            text = model.fileSizeDes;
-            font = cell.messageFileSizeFont;
-            CGRect sizeRect;
-            if ([NSString instancesRespondToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
-                sizeRect = [text boundingRectWithSize:CGSizeMake(bubbleMaxWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil];
-            } else {
-                //sizeRect.size = [text sizeWithFont:font constrainedToSize:CGSizeMake(bubbleMaxWidth, CGFLOAT_MAX) lineBreakMode:NSLineBreakByCharWrapping];
-                sizeRect.size = [self sizeWithText:text fontSize:font.pointSize];
-            }
-            height += (sizeRect.size.height > 15 ? sizeRect.size.height : 15);
         }
             break;
         default:

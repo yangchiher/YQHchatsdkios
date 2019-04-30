@@ -30,11 +30,19 @@
 @property (nonatomic, strong) UIImageView* imageView2;
 @property (nonatomic, strong) UIImageView* imageView3;
 @property (nonatomic, strong) UIImageView* imageView4;
+
 @property (nonatomic, strong) UIImageView* imageView5;
 @property (nonatomic, strong) UIImageView* imageView6;
 @property (nonatomic, strong) UIImageView* imageView7;
 @property (nonatomic, strong) UIImageView* imageView8;
 
+@property (nonatomic, strong) UIImageView* imageView9;
+@property (nonatomic, strong) UIImageView* imageView10;
+@property (nonatomic, strong) UIImageView* imageView11;
+@property (nonatomic, strong) UIImageView* imageView12;
+
+@property (nonatomic, strong) UIImageView* imageViewPlus;
+@property (nonatomic, strong) UIImageView* imageViewMinus;
 
 @property (nonatomic, strong) UILabel* label1;
 @property (nonatomic, strong) UILabel* label2;
@@ -44,6 +52,9 @@
 @property (nonatomic, strong) UILabel* label6;
 @property (nonatomic, strong) UILabel* label7;
 @property (nonatomic, strong) UILabel* label8;
+
+@property (nonatomic, strong) UILabel* label9;
+@property (nonatomic, strong) UILabel* label10;
 
 @property (nonatomic, strong) NSArray* imageArray;
 

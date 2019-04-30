@@ -75,7 +75,7 @@ typedef enum {
 //聊天界面头像背景
 #define chatMessageAvatarImageBg [UIImage imageNamed:@"icon_user_parents_def"]
 //聊天界面消息发送失败提示图标
-#define chatMessageSendFail [UIImage imageNamed:@"icon_photo_bg"]
+#define chatMessageSendFail [UIImage imageNamed:@"chat_message_send_faild"]
 //聊天界面下载图片背景
 #define chatMessageImageBg [UIImage imageNamed:@"icon_photo_bg"]
 //聊天界面视频背景

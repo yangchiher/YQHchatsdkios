@@ -10,18 +10,14 @@
 #define YQHMessageCellPadding 10
 
 extern NSString *const YQHMessageCellIdentifierSendText;
-extern NSString *const YQHMessageCellIdentifierSendLocation;
 extern NSString *const YQHMessageCellIdentifierSendVoice;
 extern NSString *const YQHMessageCellIdentifierSendVideo;
 extern NSString *const YQHMessageCellIdentifierSendImage;
-extern NSString *const YQHMessageCellIdentifierSendFile;
 
 extern NSString *const YQHMessageCellIdentifierRecvText;
-extern NSString *const YQHMessageCellIdentifierRecvLocation;
 extern NSString *const YQHMessageCellIdentifierRecvVoice;
 extern NSString *const YQHMessageCellIdentifierRecvVideo;
 extern NSString *const YQHMessageCellIdentifierRecvImage;
-extern NSString *const YQHMessageCellIdentifierRecvFile;
 
 @interface YQHBubbleView : UIView
 {

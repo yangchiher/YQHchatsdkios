@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class YQHChatMessageModel;
 @interface YQHChatMessageImageCell : UITableViewCell
+
+@property (strong, nonatomic) YQHChatMessageModel* model;
 
 @end
 

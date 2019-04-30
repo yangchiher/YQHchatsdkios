@@ -111,7 +111,7 @@
     
     
     //标题
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarView1.frame)+7.5, 25, SCREEN_WIDTH-215, 17)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarView1.frame)+7.5, 25, SCREEN_WIDTH-90, 17)];
     ////self.titleLabel.backgroundColor = [UIColor grayColor];
     self.titleLabel.font=[UIFont fontWithName:@"PingFangSC-Regular" size:15];
     self.titleLabel.text = @"";

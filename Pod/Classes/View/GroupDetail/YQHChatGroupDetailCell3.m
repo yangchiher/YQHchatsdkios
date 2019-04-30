@@ -37,7 +37,7 @@
     _descriptionTitleLabel = [[UILabel alloc] init];
     [self.contentView addSubview:_descriptionTitleLabel];
     _descriptionTitleLabel.text=@"群简介";
-    _descriptionTitleLabel.font=[UIFont systemFontOfSize:17];
+    _descriptionTitleLabel.font=[UIFont systemFontOfSize:15];
     _descriptionTitleLabel.textColor=[UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
     [_descriptionTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView.mas_left).offset(15);

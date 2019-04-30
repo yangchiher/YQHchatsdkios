@@ -105,7 +105,7 @@
         }else if (hour < 0 && hour >= -24) {
             dateFormatter = [self dateFormatterWithFormat:@"昨天HH:mm"];
         }else {
-            dateFormatter = [self dateFormatterWithFormat:@"yyyy-MM-dd HH:mm"];
+            dateFormatter = [self dateFormatterWithFormat:@"MM-dd HH:mm"];
         }
     }else {
         if (hour >= 0 && hour <= 6) {
@@ -119,7 +119,7 @@
         }else if (hour < 0 && hour >= -24){
             dateFormatter = [self dateFormatterWithFormat:@"昨天HH:mm"];
         }else  {
-            dateFormatter = [self dateFormatterWithFormat:@"yyyy-MM-dd HH:mm"];
+            dateFormatter = [self dateFormatterWithFormat:@"MM月dd日 HH:mm"];
         }
     }
     
