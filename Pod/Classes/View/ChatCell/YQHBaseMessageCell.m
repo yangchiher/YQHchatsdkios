@@ -283,7 +283,7 @@ NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
                 if (!image) {
                     image = _model.image;
                     if (!image) {
-                        [_bubbleView.videoImageView sd_setImageWithURL:[NSURL URLWithString:_model.thumbnailRemotePath] placeholderImage:chatMessageImageBg];
+                        [_bubbleView.videoImageView sd_setImageWithURL:[NSURL URLWithString:_model.fileURLPath] placeholderImage:chatMessageImageBg];
                     } else {
                         _bubbleView.videoImageView.image = image;
                     }
@@ -587,7 +587,7 @@ NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
         }
         case YQHChatMessageVideoType:
         {
-            CGSize retSize = model.thumbnailImageSize;
+            CGSize retSize = model.fileThumbnailSize;
             if (retSize.width == 0 || retSize.height == 0) {
                 retSize.width = kEMMessageImageSizeWidth;
                 retSize.height = kEMMessageImageSizeHeight;

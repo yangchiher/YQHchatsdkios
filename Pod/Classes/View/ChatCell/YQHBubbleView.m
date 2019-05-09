@@ -20,17 +20,13 @@
 
 @implementation YQHBubbleView
 
-//CGFloat const YQHMessageCellPadding = 10;
 @synthesize backgroundImageView = _backgroundImageView;
 @synthesize margin = _margin;
 
-- (instancetype)initWithMargin:(UIEdgeInsets)margin
-                      isSender:(BOOL)isSender
-{
+- (instancetype)initWithMargin:(UIEdgeInsets)margin isSender:(BOOL)isSender{
     self = [super init];
     if (self) {
         _isSender = isSender;
-        //_margin = margin;
         _margin=UIEdgeInsetsMake(0, 0, 0, 0);
         _marginConstraints = [NSMutableArray array];
     }
@@ -40,7 +36,7 @@
 
 #pragma mark - Setup Constraints
 
-- (void)_setupBackgroundImageViewConstraints
+- (void)setupBackgroundImageViewConstraints
 {
     [self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
     [self addConstraint:[NSLayoutConstraint constraintWithItem:_backgroundImageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
@@ -58,7 +54,7 @@
         _backgroundImageView.translatesAutoresizingMaskIntoConstraints = NO;
         _backgroundImageView.backgroundColor = [UIColor clearColor];
         [self addSubview:_backgroundImageView];
-        [self _setupBackgroundImageViewConstraints];
+        [self setupBackgroundImageViewConstraints];
     }
     
     return _backgroundImageView;

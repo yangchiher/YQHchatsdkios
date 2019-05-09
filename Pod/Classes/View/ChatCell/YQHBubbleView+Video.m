@@ -12,7 +12,7 @@
 
 #pragma mark - private
 
-- (void)_setupVideoBubbleMarginConstraints
+- (void)setupVideoBubbleMarginConstraints
 {
     NSLayoutConstraint *marginTopConstraint = [NSLayoutConstraint constraintWithItem:self.videoImageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.backgroundImageView attribute:NSLayoutAttributeTop multiplier:1.0 constant:self.margin.top];
     NSLayoutConstraint *marginBottomConstraint = [NSLayoutConstraint constraintWithItem:self.videoImageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.backgroundImageView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-self.margin.bottom];
@@ -20,6 +20,7 @@
     NSLayoutConstraint *marginRightConstraint = [NSLayoutConstraint constraintWithItem:self.videoImageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.backgroundImageView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:self.margin.left];
     
     [self.marginConstraints removeAllObjects];
+    
     [self.marginConstraints addObject:marginTopConstraint];
     [self.marginConstraints addObject:marginBottomConstraint];
     [self.marginConstraints addObject:marginLeftConstraint];
@@ -28,9 +29,9 @@
     [self addConstraints:self.marginConstraints];
 }
 
-- (void)_setupVideoBubbleConstraints
+- (void)setupVideoBubbleConstraints
 {
-    [self _setupVideoBubbleMarginConstraints];
+    [self setupVideoBubbleMarginConstraints];
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.videoTagView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.videoImageView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
     
@@ -48,6 +49,8 @@
     self.videoImageView = [[UIImageView alloc] init];
     self.videoImageView.translatesAutoresizingMaskIntoConstraints = NO;
     self.videoImageView.backgroundColor = [UIColor clearColor];
+    self.videoImageView.layer.cornerRadius=5;
+    self.videoImageView.layer.masksToBounds=YES;
     [self.backgroundImageView addSubview:self.videoImageView];
     
     self.videoTagView = [[UIImageView alloc] init];
@@ -55,7 +58,7 @@
     self.videoTagView.backgroundColor = [UIColor clearColor];
     [self.videoImageView addSubview:self.videoTagView];
     
-    [self _setupVideoBubbleConstraints];
+    [self setupVideoBubbleConstraints];
 }
 
 - (void)updateVideoMargin:(UIEdgeInsets)margin
@@ -66,7 +69,7 @@
     _margin = margin;
     
     [self removeConstraints:self.marginConstraints];
-    [self _setupVideoBubbleMarginConstraints];
+    [self setupVideoBubbleMarginConstraints];
 }
 
 @end

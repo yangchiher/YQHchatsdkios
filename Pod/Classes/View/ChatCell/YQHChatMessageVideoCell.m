@@ -1,21 +1,20 @@
 //
-//  YQHChatMessageImageCell.m
-//  家校共享
+//  YQHChatMessageVideoCell.m
+//  AliyunOSSiOS
 //
-//  Created by 杨棋贺 on 2019/3/19.
-//  Copyright © 2019年 mac. All rights reserved.
+//  Created by 杨棋贺 on 2019/5/8.
 //
 
-#import "YQHChatMessageImageCell.h"
+#import "YQHChatMessageVideoCell.h"
+
 #import "YQHChatMessageModel.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-//#define chatSendBubbleBg [[UIImage imageNamed:@"chat_sender_bubble"] stretchableImageWithLeftCapWidth:25 topCapHeight:25]
+#define chatSendBubbleBg [[UIImage imageNamed:@"chat_sender_bubble"] stretchableImageWithLeftCapWidth:25 topCapHeight:25]
 
-//#define chatReceiverBubbleBg [[UIImage imageNamed:@"chat_receiver_bubble"] stretchableImageWithLeftCapWidth:25 topCapHeight:25]
+#define chatReceiverBubbleBg [[UIImage imageNamed:@"chat_receiver_bubble"] stretchableImageWithLeftCapWidth:25 topCapHeight:25]
 
-@interface YQHChatMessageImageCell()
-
+@interface YQHChatMessageVideoCell()
 
 @property (nonatomic, strong) UIActivityIndicatorView *activity;
 @property (strong, nonatomic) UIButton *statusButton;
@@ -36,10 +35,9 @@
 @property (nonatomic) NSLayoutConstraint *statusWidthConstraint;
 @property (nonatomic) NSLayoutConstraint *hasReadWidthConstraint;
 
-
 @end
 
-@implementation YQHChatMessageImageCell
+@implementation YQHChatMessageVideoCell
 
 static const CGFloat cellMargin=15;
 
@@ -59,18 +57,17 @@ static const CGFloat cellMargin=15;
         _leftBubbleMargin = UIEdgeInsetsMake(8, 15, 8, 10);
         _rightBubbleMargin = UIEdgeInsetsMake(8, 10, 8, 15);
         _bubbleMargin = UIEdgeInsetsMake(8, 0, 8, 0);
-        //[self setSendBubbleBackgroundImage:chatSendBubbleBg];
-        //[self setRecvBubbleBackgroundImage:chatReceiverBubbleBg];
+        [self setSendBubbleBackgroundImage:chatSendBubbleBg];
+        [self setRecvBubbleBackgroundImage:chatReceiverBubbleBg];
         [self _setupSubviewsWithType:model.chatMessageType isSender:model.isSender model:model];
     }
     return self;
 }
 
-//长按图标 显示菜单
-- (BOOL)canBecomeFirstResponder
-{
-    return YES;
-}
+//- (BOOL)canBecomeFirstResponder
+//{
+//    return YES;
+//}
 
 #pragma mark - setup subviews
 
@@ -84,7 +81,6 @@ static const CGFloat cellMargin=15;
     [self.contentView addSubview:_avatarView];
     
     _bubbleView = [[YQHBubbleView alloc] initWithMargin:isSender?_rightBubbleMargin:_leftBubbleMargin isSender:isSender];
-    [self.contentView addSubview:_bubbleView];
     _bubbleView.backgroundColor=[UIColor clearColor];
     _bubbleView.translatesAutoresizingMaskIntoConstraints = NO;
     //_bubbleView.textLabel.font = [UIFont systemFontOfSize:15];
@@ -92,56 +88,43 @@ static const CGFloat cellMargin=15;
     //_bubbleView.backgroundColor=[UIColor greenColor];
     //_bubbleView.layer.cornerRadius=10;
     
-    if (model.chatMessageType==YQHChatMessageImageType) {
-        [_bubbleView setupImageBubbleView];
-    }else{
-        [_bubbleView setupVideoBubbleView];
-        _bubbleView.videoTagView.image = chatMessageVedioBg;
-    }
-    
+    [_bubbleView setupImageBubbleView];
     if (isSender) {
         _bubbleView.textLabel.textColor = [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1.0];
-        
-        _activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        _activity.translatesAutoresizingMaskIntoConstraints = NO;
-        _activity.backgroundColor = [UIColor clearColor];
-        _activity.hidden = YES;
-        [_activity startAnimating];
-        [self.contentView addSubview:_activity];
-        
-        _statusButton = [[UIButton alloc] init];
-        _statusButton.translatesAutoresizingMaskIntoConstraints = NO;
-        _statusButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [_statusButton setImage:chatMessageSendFail forState:UIControlStateNormal];
-        [_statusButton addTarget:self action:@selector(statusAction) forControlEvents:UIControlEventTouchUpInside];
-        _statusButton.hidden = YES;
-        [self.contentView addSubview:_statusButton];
-        
-        _hasRead = [[UILabel alloc] init];
-        _hasRead.translatesAutoresizingMaskIntoConstraints = NO;
-        _hasRead.text = @"已读";
-        _hasRead.textAlignment = NSTextAlignmentCenter;
-        _hasRead.font = [UIFont systemFontOfSize:12];
-        _hasRead.hidden = YES;
-        _hasRead.backgroundColor=[UIColor clearColor];
-        [_hasRead sizeToFit];
-        [self.contentView addSubview:_hasRead];
-        
-        [self configureSendLayoutConstraints];
-        
     }else{
         _bubbleView.textLabel.textColor = [UIColor whiteColor];
-        
-         [self configureRecvLayoutConstraints];
     }
+    [self.contentView addSubview:_bubbleView];
     
+    _activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    _activity.translatesAutoresizingMaskIntoConstraints = NO;
+    _activity.backgroundColor = [UIColor clearColor];
+    _activity.hidden = YES;
+    [_activity startAnimating];
+    [self.contentView addSubview:_activity];
     
-
-
+    _statusButton = [[UIButton alloc] init];
+    _statusButton.translatesAutoresizingMaskIntoConstraints = NO;
+    _statusButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [_statusButton setImage:chatMessageSendFail forState:UIControlStateNormal];
+    [_statusButton addTarget:self action:@selector(statusAction) forControlEvents:UIControlEventTouchUpInside];
+    _statusButton.hidden = YES;
+    [self.contentView addSubview:_statusButton];
+    
+    _hasRead = [[UILabel alloc] init];
+    _hasRead.translatesAutoresizingMaskIntoConstraints = NO;
+    _hasRead.text = @"已读";
+    _hasRead.textAlignment = NSTextAlignmentCenter;
+    _hasRead.font = [UIFont systemFontOfSize:12];
+    _hasRead.hidden = YES;
+    _hasRead.backgroundColor=[UIColor clearColor];
+    [_hasRead sizeToFit];
+    [self.contentView addSubview:_hasRead];
+    
     if (model.isSender) {
-        
+        [self configureSendLayoutConstraints];
     } else {
-       
+        [self configureRecvLayoutConstraints];
     }
     
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(bubbleViewTapAction:)];
@@ -165,7 +148,7 @@ static const CGFloat cellMargin=15;
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-YQHMessageCellPadding]];
     
-
+    
     //气泡
     self.bubbleMaxWidthConstraint = [NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.bubbleMaxWidth];
     [self addConstraint:self.bubbleMaxWidthConstraint];
@@ -203,7 +186,7 @@ static const CGFloat cellMargin=15;
     //是否已读
     self.hasReadWidthConstraint = [NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.00 constant:40];
     
-     [self addConstraint:self.hasReadWidthConstraint];
+    [self addConstraint:self.hasReadWidthConstraint];
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.hasRead attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self.hasRead attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0]];
     
@@ -224,7 +207,7 @@ static const CGFloat cellMargin=15;
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:YQHMessageCellPadding]];
     
-
+    
     //气泡   NSLayoutRelationLessThanOrEqual
     self.bubbleMaxWidthConstraint = [NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.bubbleMaxWidth];
     [self addConstraint:self.bubbleMaxWidthConstraint];
@@ -481,7 +464,7 @@ static const CGFloat cellMargin=15;
         }
         
     }
-        
+    
     height += actualHeight;
     
     model.cellHeight = height;

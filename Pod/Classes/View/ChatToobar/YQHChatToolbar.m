@@ -661,18 +661,27 @@ const CGFloat inputViewMaxHeight=150.0f;
 
 - (void)chatKeyboardWillChangeFrame:(NSNotification *)notification
 {
-    NSDictionary *userInfo = notification.userInfo;
-    CGRect endFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGRect beginFrame = [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-    CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    UIViewAnimationCurve curve = [userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
     
+    //添加表情输入和键盘切换之间没有回调
     
-    void(^animations)(void) = ^{
-        [self _willShowKeyboardFromFrame:beginFrame toFrame:endFrame];
-    };
+    if (_delegate && [_delegate respondsToSelector:@selector(chatToolbarDidChangeFrameToHeight:)]) {
+        [_delegate chatToolbarDidChangeFrameToHeight:self.frame.size.height];
+    }
     
-    [UIView animateWithDuration:duration delay:0.0f options:(curve << 16 | UIViewAnimationOptionBeginFromCurrentState) animations:animations completion:nil];
+    //键盘弹出时间不一致
+    
+//    NSDictionary *userInfo = notification.userInfo;
+//    CGRect endFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+//    CGRect beginFrame = [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+//    CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+//    UIViewAnimationCurve curve = [userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
+//    
+//    
+//    void(^animations)(void) = ^{
+//        [self _willShowKeyboardFromFrame:beginFrame toFrame:endFrame];
+//    };
+//    
+//    [UIView animateWithDuration:duration delay:0.0f options:(curve << 16 | UIViewAnimationOptionBeginFromCurrentState) animations:animations completion:nil];
 }
 
 #pragma mark - action

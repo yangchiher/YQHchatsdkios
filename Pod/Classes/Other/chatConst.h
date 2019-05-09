@@ -72,6 +72,16 @@ typedef enum {
 #define kEMMessageVoiceHeight 30
 
 
+#define ChatMessageImageWidth 120
+#define ChatMessageImageHeight 120
+
+//图片最大尺寸和最小尺寸
+#define ChatMessageImageMaxWidth    160
+#define ChatMessageImageMinWidth     50
+
+#define ChatMessageImageMinHeight    50
+#define ChatMessageImageMaxHeight    160
+
 //聊天界面头像背景
 #define chatMessageAvatarImageBg [UIImage imageNamed:@"icon_user_parents_def"]
 //聊天界面消息发送失败提示图标
@@ -79,7 +89,7 @@ typedef enum {
 //聊天界面下载图片背景
 #define chatMessageImageBg [UIImage imageNamed:@"icon_photo_bg"]
 //聊天界面视频背景
-#define chatMessageVedioBg [UIImage imageNamed:@"home-lookme-play"]
+#define chatMessageVedioBg [UIImage imageNamed:@"chat_video_play"]
 //聊天界面接受者语音背景
 #define chatMessageAudioReceiverBg [UIImage imageNamed:@"chat_receiver_audio_playing_full"]
 //聊天界面发送者语音背景

@@ -92,7 +92,7 @@ static const CGFloat cellMargin=5;
         case YQHChatMessageVideoType:
         {
             //图片自定义伸缩
-            CGSize retSize = self.model.thumbnailImageSize;
+            CGSize retSize = self.model.fileThumbnailSize;
             if (retSize.width == 0 || retSize.height == 0) {
                 retSize.width = kEMMessageImageSizeWidth;
                 retSize.height = kEMMessageImageSizeHeight;
@@ -114,18 +114,7 @@ static const CGFloat cellMargin=5;
             self.bubbleWithImageConstraint = [NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:retSize.width + margin];
             
             [self addConstraint:self.bubbleWithImageConstraint];
-            
-            
-//            CAShapeLayer * _maskLayer = [CAShapeLayer layer];
-//                _maskLayer.fillColor = [UIColor blackColor].CGColor;
-//                _maskLayer.strokeColor = [UIColor clearColor].CGColor;
-//                _maskLayer.frame = self.bounds;
-//                _maskLayer.contentsCenter =CGRectMake(0.5,0.6,0.1,0.1);
-//                _maskLayer.contentsScale = [UIScreen mainScreen].scale;
-//            _maskLayer.contents = (id)self.sendBubbleBackgroundImage.CGImage;
-//            self.imageView.layer.mask = _maskLayer;
-//            self.imageView.layer.frame = self.bounds;
-            
+        
         }
             break;
         default:
@@ -227,7 +216,7 @@ static const CGFloat cellMargin=5;
             {
                 _statusButton.hidden = YES;
                 [_activity stopAnimating];
-                if (self.model.isReadAcked) {
+                if (self.model.isRead) {
                     _hasRead.hidden = NO;
                 }
             }

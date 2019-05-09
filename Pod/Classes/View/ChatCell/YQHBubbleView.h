@@ -59,5 +59,6 @@ extern NSString *const YQHMessageCellIdentifierRecvImage;
 
 - (instancetype)initWithMargin:(UIEdgeInsets)margin isSender:(BOOL)isSender;
 
+
 @end
 

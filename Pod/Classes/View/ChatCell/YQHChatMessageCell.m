@@ -94,7 +94,7 @@ static const CGFloat cellMargin=15;
         case YQHChatMessageVideoType:
         {
             //图片自定义伸缩
-            CGSize retSize = self.model.thumbnailImageSize;
+            CGSize retSize = self.model.fileThumbnailSize;
             if (retSize.width == 0 || retSize.height == 0) {
                 retSize.width = kEMMessageImageSizeWidth;
                 retSize.height = kEMMessageImageSizeHeight;
@@ -214,7 +214,7 @@ static const CGFloat cellMargin=15;
             {
                 _statusButton.hidden = YES;
                 [_activity stopAnimating];
-                if (self.model.isReadAcked) {
+                if (self.model.isRead) {
                     _hasRead.hidden = NO;
                 }
             }

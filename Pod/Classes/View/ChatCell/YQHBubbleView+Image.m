@@ -12,7 +12,7 @@
 
 #pragma mark - private
 
-- (void)setupImageBubbleMarginConstraints1
+- (void)setupImageBubbleMarginConstraints
 {
     
     NSLayoutConstraint *marginTopConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.backgroundImageView attribute:NSLayoutAttributeTop multiplier:1.0 constant:self.margin.top];
@@ -21,12 +21,6 @@
     NSLayoutConstraint *marginRightConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.backgroundImageView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:self.margin.left];
     
     
-    
-//    NSLayoutConstraint *marginTopConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.backgroundImageView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
-//    NSLayoutConstraint *marginBottomConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.backgroundImageView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
-//    NSLayoutConstraint *marginLeftConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.backgroundImageView attribute:NSLayoutAttributeRight multiplier:1.0 constant:0];
-//    NSLayoutConstraint *marginRightConstraint = [NSLayoutConstraint constraintWithItem:self.imageView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.backgroundImageView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:0];
-
     [self.marginConstraints removeAllObjects];
     [self.marginConstraints addObject:marginTopConstraint];
     [self.marginConstraints addObject:marginBottomConstraint];
@@ -37,10 +31,6 @@
     
 }
 
-- (void)_setupImageBubbleConstraints
-{
-    //[self _setupImageBubbleMarginConstraints];
-}
 
 #pragma mark - public
 
@@ -49,22 +39,12 @@
     self.imageView = [[UIImageView alloc] init];
     self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
     self.imageView.backgroundColor = [UIColor clearColor];
-    
+    self.imageView.layer.cornerRadius=5;
+    self.imageView.layer.masksToBounds=YES;
     [self.backgroundImageView addSubview:self.imageView];
     
     //添加的Image和背景图一样大小问题
-    
-    //self.backgroundImageView.image=chatMessageImageBg;
-    
-    //UIImageView *btnImgView = [[UIImageView alloc]initWithImage:chatMessageImageBg];
-    
-    
-    //self.backgroundImageView.frame = CGRectInset(self.imageView.frame, 0.0f, 0.0f);
-    //self.backgroundImageView.layer.mask = self.imageView.layer;
-    
-    
-    
-    //[self _setupImageBubbleConstraints];
+    [self setupImageBubbleMarginConstraints];
 }
 
 - (void)updateImageMargin:(UIEdgeInsets)margin
@@ -76,18 +56,7 @@
     
     [self removeConstraints:self.marginConstraints];
     
-    [self setupImageBubbleMarginConstraints1];
-    
-    
-    //self.backgroundImageView.frame = CGRectInset(self.imageView.frame, 0.0f, 0.0f);
-    //self.backgroundImageView.layer.mask = self.imageView.layer;
-    
-    //self.imageView.layer.mask = self.backgroundImageView.layer;
-    
-//    if (self.backgroundImageView.frame.size.width>0) {
-//        self.imageView.frame = CGRectInset(self.backgroundImageView.frame, 0.0f, 0.0f);
-//        self.imageView.layer.mask = self.backgroundImageView.layer;
-//    }
+    [self setupImageBubbleMarginConstraints];
 }
 
 @end

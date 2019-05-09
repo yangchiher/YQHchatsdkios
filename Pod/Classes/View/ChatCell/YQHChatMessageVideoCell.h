@@ -1,19 +1,17 @@
 //
-//  YQHChatMessageImageCell.h
-//  家校共享
+//  YQHChatMessageVideoCell.h
+//  AliyunOSSiOS
 //
-//  Created by 杨棋贺 on 2019/3/19.
-//  Copyright © 2019年 mac. All rights reserved.
+//  Created by 杨棋贺 on 2019/5/8.
 //
 
 #import <UIKit/UIKit.h>
 #import "YQHBubbleView+Image.h"
-#import "YQHBubbleView+Video.h"
 #import "YQHChatMessageDelegate.h"
 
 @class YQHChatMessageModel;
 
-@interface YQHChatMessageImageCell : UITableViewCell
+@interface YQHChatMessageVideoCell : UITableViewCell
 
 @property (strong, nonatomic) UIImage *sendBubbleBackgroundImage;
 
@@ -32,7 +30,6 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier model:(YQHChatMessageModel*)model;
 
 + (CGFloat)cellHeightWithModel:(YQHChatMessageModel*)model;
-
 
 @end
 

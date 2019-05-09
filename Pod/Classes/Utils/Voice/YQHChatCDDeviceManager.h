@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 @protocol YQHChatCDDeviceManagerProximitySensorDelegate <NSObject>
 
 - (void)proximitySensorChanged:(BOOL)isCloseToUser;

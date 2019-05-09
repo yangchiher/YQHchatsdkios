@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "YQHChatMessageDelegate.h"
 
-@protocol YQHMessageCellDelegate;
+//@protocol YQHMessageCellDelegate;
 @class YQHBubbleView;
 @class YQHChatMessageModel;
 
@@ -83,14 +84,14 @@
 
 @end
 
-@protocol YQHMessageCellDelegate <NSObject>
-
-@optional
-
-- (void)messageCellSelected:(YQHChatMessageModel*)model;
-
-- (void)statusButtonSelcted:(YQHChatMessageModel*)model withMessageCell:(YQHBaseMessageCell*)messageCell;
-
-- (void)avatarViewSelcted:(YQHChatMessageModel*)model;
-
-@end
+//@protocol YQHMessageCellDelegate <NSObject>
+//
+//@optional
+//
+//- (void)messageCellSelected:(YQHChatMessageModel*)model;
+//
+//- (void)statusButtonSelcted:(YQHChatMessageModel*)model withMessageCell:(YQHBaseMessageCell*)messageCell;
+//
+//- (void)avatarViewSelcted:(YQHChatMessageModel*)model;
+//
+//@end
