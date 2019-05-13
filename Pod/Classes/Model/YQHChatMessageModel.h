@@ -317,9 +317,9 @@
 
 
 /**
- 图片数据
+ 图片数据  暂时保留 后期去掉
  */
-//@property (strong, nonatomic) NSData *imageData;
+@property (strong, nonatomic) NSData *imageData;
 
 /**
  图片尺寸

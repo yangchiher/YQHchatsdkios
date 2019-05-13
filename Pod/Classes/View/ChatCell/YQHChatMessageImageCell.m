@@ -83,6 +83,15 @@ static const CGFloat cellMargin=15;
     _avatarView.userInteractionEnabled = YES;
     [self.contentView addSubview:_avatarView];
     
+    //群聊显示姓名  单聊不显示姓名
+    _nameLabel = [[UILabel alloc] init];
+    _nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    _nameLabel.backgroundColor = [UIColor clearColor];
+    _nameLabel.font = [UIFont systemFontOfSize:10];
+    //_nameLabel.textColor = _messageNameColor;
+    [self.contentView addSubview:_nameLabel];
+    
+    
     _bubbleView = [[YQHBubbleView alloc] initWithMargin:isSender?_rightBubbleMargin:_leftBubbleMargin isSender:isSender];
     [self.contentView addSubview:_bubbleView];
     _bubbleView.backgroundColor=[UIColor clearColor];
@@ -119,7 +128,7 @@ static const CGFloat cellMargin=15;
         
         _hasRead = [[UILabel alloc] init];
         _hasRead.translatesAutoresizingMaskIntoConstraints = NO;
-        _hasRead.text = @"已读";
+        _hasRead.text = @"";
         _hasRead.textAlignment = NSTextAlignmentCenter;
         _hasRead.font = [UIFont systemFontOfSize:12];
         _hasRead.hidden = YES;
@@ -165,7 +174,13 @@ static const CGFloat cellMargin=15;
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeRight multiplier:1.0 constant:-YQHMessageCellPadding]];
     
-
+    //姓名
+    //if (self.isShowName) {
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+        
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.avatarView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:-5]];
+    //}
+    
     //气泡
     self.bubbleMaxWidthConstraint = [NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.bubbleMaxWidth];
     [self addConstraint:self.bubbleMaxWidthConstraint];
@@ -224,7 +239,14 @@ static const CGFloat cellMargin=15;
     
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.avatarView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeft multiplier:1.0 constant:YQHMessageCellPadding]];
     
+    //姓名
+    //if (self.isShowName) {
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+        
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.avatarView attribute:NSLayoutAttributeRight multiplier:1.0 constant:YQHMessageCellPadding]];
+    //}
 
+    
     //气泡   NSLayoutRelationLessThanOrEqual
     self.bubbleMaxWidthConstraint = [NSLayoutConstraint constraintWithItem:self.bubbleView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:self.bubbleMaxWidth];
     [self addConstraint:self.bubbleMaxWidthConstraint];
@@ -298,6 +320,14 @@ static const CGFloat cellMargin=15;
 - (void)setModel:(YQHChatMessageModel*)model
 {
     _model = model;
+    
+    _nameLabel.text=_model.nickname;
+    
+    if (self.isShowName) {
+        _nameLabel.hidden=NO;
+    }else{
+        _nameLabel.hidden=YES;
+    }
     
     self.bubbleMaxWidth=model.cellBubbleWidth;
     

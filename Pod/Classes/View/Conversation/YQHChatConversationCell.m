@@ -120,13 +120,11 @@
     self.badgeView.translatesAutoresizingMaskIntoConstraints = NO;
     self.badgeView.titleLabel.textAlignment = NSTextAlignmentCenter;
     self.badgeView.clipsToBounds = YES;
-    self.badgeView.titleLabel.textColor = [UIColor whiteColor];
+    //self.badgeView.titleLabel.textColor = [UIColor whiteColor];
     self.badgeView.backgroundColor = [UIColor colorWithRed:247/255.0 green:64/255.0 blue:64/255.0 alpha:1/1.0];
-    //[self.badgeView setBackgroundImage:[UII] forState:UIControlStateNormal];
-    //[self.badgeView setBackgroundImage:<#(nullable UIImage *)#> forState:UIControlStateHighlighted];
     
-    //[self.badgeView setBackgroundImage:[UIImage imageWithColor:RGB(247, 64, 64)] forState:UIControlStateNormal];
-    //[self.badgeView setBackgroundImage:[UIImage imageWithColor:RGB(247, 64, 64)] forState:UIControlStateHighlighted];
+    [self.badgeView setBackgroundImage:[UIImage imageNamed:@"chat_message_dot"] forState:UIControlStateNormal];
+    [self.badgeView setBackgroundImage:[UIImage imageNamed:@"chat_message_dot"] forState:UIControlStateHighlighted];
     
     self.badgeView.titleLabel.font = [UIFont systemFontOfSize:10];
     self.badgeView.layer.cornerRadius = 8;

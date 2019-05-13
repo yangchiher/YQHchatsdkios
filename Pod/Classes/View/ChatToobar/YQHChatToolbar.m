@@ -659,29 +659,31 @@ const CGFloat inputViewMaxHeight=150.0f;
 
 #pragma mark - UIKeyboardNotification
 
+#warning 这里有问题  本项目中采取 和 实际中采取不一致
+
 - (void)chatKeyboardWillChangeFrame:(NSNotification *)notification
 {
     
     //添加表情输入和键盘切换之间没有回调
+    //本项目中取消动画
+//    if (_delegate && [_delegate respondsToSelector:@selector(chatToolbarDidChangeFrameToHeight:)]) {
+//        [_delegate chatToolbarDidChangeFrameToHeight:self.frame.size.height];
+//    }
     
-    if (_delegate && [_delegate respondsToSelector:@selector(chatToolbarDidChangeFrameToHeight:)]) {
-        [_delegate chatToolbarDidChangeFrameToHeight:self.frame.size.height];
-    }
     
     //键盘弹出时间不一致
+    NSDictionary *userInfo = notification.userInfo;
+    CGRect endFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    CGRect beginFrame = [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    UIViewAnimationCurve curve = [userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
     
-//    NSDictionary *userInfo = notification.userInfo;
-//    CGRect endFrame = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
-//    CGRect beginFrame = [userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-//    CGFloat duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-//    UIViewAnimationCurve curve = [userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue];
-//    
-//    
-//    void(^animations)(void) = ^{
-//        [self _willShowKeyboardFromFrame:beginFrame toFrame:endFrame];
-//    };
-//    
-//    [UIView animateWithDuration:duration delay:0.0f options:(curve << 16 | UIViewAnimationOptionBeginFromCurrentState) animations:animations completion:nil];
+    
+    void(^animations)(void) = ^{
+        [self _willShowKeyboardFromFrame:beginFrame toFrame:endFrame];
+    };
+    
+    [UIView animateWithDuration:duration delay:0.0f options:(curve << 16 | UIViewAnimationOptionBeginFromCurrentState) animations:animations completion:nil];
 }
 
 #pragma mark - action

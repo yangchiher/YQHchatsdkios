@@ -38,6 +38,9 @@
 
 @property (nonatomic, strong) NSString* honor;
 
+//多姓名标签映射
+@property (nonatomic, strong) NSDictionary* tagMap;
+
 //introduce = "",
 //userName = "老师J自习老师",
 //accountNo = "",

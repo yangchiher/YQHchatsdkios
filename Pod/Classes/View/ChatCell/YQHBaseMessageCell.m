@@ -237,8 +237,14 @@ NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
                 if (!image) {
                     image = _model.image;
                     if (!image) {
-                        //图片暂时 注销  11111
-                        [_bubbleView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.fileURLPath] placeholderImage:chatMessageImageBg];
+                        if (model.fileLocalPath||model.fileThumbnailLocalPath){//图片或者缩略图本地地址存在  优先显示缩略图
+                            NSString *lcalPath=[model.fileThumbnailLocalPath length]?model.fileThumbnailLocalPath:model.fileLocalPath;
+                            NSURL *localURL = [NSURL fileURLWithPath:lcalPath];
+                            [_bubbleView.imageView sd_setImageWithURL:localURL placeholderImage:chatMessageImageBg options:SDWebImageRefreshCached];
+                        }else{
+                            [_bubbleView.imageView sd_setImageWithURL:[NSURL URLWithString:_model.fileURLPath] placeholderImage:chatMessageImageBg];
+                        }
+                        
                     } else {
                         _bubbleView.imageView.image = image;
                     }
@@ -578,7 +584,11 @@ NSString *const YQHMessageCellIdentifierSendImage = @"YQHMessageCellSendImage";
                 CGRect rect = [text boundingRectWithSize:CGSizeMake(bubbleMaxWidth, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading context:nil];
                 height += (rect.size.height > 20 ? rect.size.height : 20) + 10;
             }
-            height +=15;
+            if (model.chatType==YQHGroupChatType) {
+                height +=15;
+            }else{
+                height +=0;
+            }
         }
             break;
         case YQHChatMessageImageType:

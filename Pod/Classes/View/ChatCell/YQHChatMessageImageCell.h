@@ -15,6 +15,8 @@
 
 @interface YQHChatMessageImageCell : UITableViewCell
 
+@property (nonatomic) BOOL isShowName;//是否展示姓名
+
 @property (strong, nonatomic) UIImage *sendBubbleBackgroundImage;
 
 @property (strong, nonatomic) UIImage *recvBubbleBackgroundImage;
@@ -23,6 +25,7 @@
 
 @property (strong, nonatomic) YQHBubbleView *bubbleView;
 
+@property (strong, nonatomic) UILabel *nameLabel;
 
 @property (strong, nonatomic) YQHChatMessageModel* model;
 
