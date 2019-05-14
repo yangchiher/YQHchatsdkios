@@ -18,6 +18,9 @@
 //姓名
 @property (strong, nonatomic) UILabel *titleLabel;
 
+//姓名
+@property (strong, nonatomic) UILabel *detailLabel;
+
 @end
 
 @implementation YQHChatContactCell
@@ -54,21 +57,28 @@
     [self.contentView addSubview:self.avatarView];
     
     //标题
-    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarView.frame)+7.5, 25, SCREEN_WIDTH-215, 15)];
+    self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarView.frame)+7.5, 15, SCREEN_WIDTH-80, 15)];
     ////self.titleLabel.backgroundColor = [UIColor grayColor];
     self.titleLabel.font=[UIFont fontWithName:@"PingFangSC-Regular" size:15];
-    self.titleLabel.text = @"";
+    //self.titleLabel.text = @"";
     self.titleLabel.textColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];//RGB(51, 51, 51);
     [self.contentView addSubview:self.titleLabel];
     
+    
+    self.detailLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.avatarView.frame)+7.5, 40, SCREEN_WIDTH-80, 15)];
+    self.detailLabel.font=[UIFont fontWithName:@"PingFangSC-Regular" size:12];
+    //self.detailLabel.text = @"";
+    self.detailLabel.textColor = [UIColor colorWithRed:51/255.0f green:51/255.0f blue:51/255.0f alpha:1.0];
+    [self.contentView addSubview:self.detailLabel];
 }
 
 -(void)setModel:(YQHChatContactModel *)model{
     self.titleLabel.text=model.userName;
     
+    self.detailLabel.text=model.detailText;
+    
     if ([model.imageUrl length] > 0){
         NSString* url=model.imageUrl;
-        //NSLog(@"%@",url);
         [self.avatarView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:chatMessageAvatarImageBg options:SDWebImageRefreshCached];
     } else {
         self.avatarView.image = chatMessageAvatarImageBg;

@@ -29,6 +29,8 @@
 //用户的实际显示名称
 @property (nonatomic, strong) NSString* userName;
 
+//用户的详细信息
+@property (nonatomic, strong) NSString* detailText;
 
 @property (nonatomic, strong) NSString* introduce;
 
